@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="MText">
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <style name="MText.Normal">
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:fontFamily">@font/fira_regular</item>
+        <item name="android:textSize">@dimen/textRegular</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="MText.Normal.Secondary">
+        <item name="android:textColor">@color/textSecondary</item>
+    </style>
+
+    <style name="MText.Headline">
+        <item name="android:textSize">@dimen/textHeadline</item>
+        <item name="android:fontFamily">@font/fira_bold</item>
+    </style>
+
+    <style name="MText.SubHeadline" parent="MText.Headline">
+        <item name="android:textSize">@dimen/textSubHeadline</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="MText.Title">
+        <item name="android:fontFamily">@font/fira_medium</item>
+        <item name="android:textSize">@dimen/textTitle</item>
+    </style>
+
+
+</resources>
