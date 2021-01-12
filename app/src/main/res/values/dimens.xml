@@ -8,4 +8,6 @@
 
     <dimen name="parentPadding">@dimen/_12sdp</dimen>
 
+    <dimen name="roundShape">@dimen/_16sdp</dimen>
+
 </resources>
