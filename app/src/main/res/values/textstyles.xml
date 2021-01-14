@@ -4,14 +4,12 @@
 
     <style name="MText">
         <item name="android:textColor">@color/textPrimary</item>
-        <item name="android:letterSpacing">0.02</item>
     </style>
 
     <style name="MText.Normal">
         <item name="android:textColor">@color/textPrimary</item>
         <item name="android:fontFamily">@font/fira_regular</item>
         <item name="android:textSize">@dimen/textRegular</item>
-        <item name="android:letterSpacing">0</item>
     </style>
 
     <style name="MText.Normal.Secondary">

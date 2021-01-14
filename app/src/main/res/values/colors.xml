@@ -5,7 +5,8 @@
     <color name="colorAccent">#1EA896</color>
 
     <color name="colorWhite">#FFFFFF</color>
-
+    <color name="background">#FFFFFF</color>
+    <color name="separator">#1A293340</color>
     <!--    text-->
 
     <color name="textPrimary">#293340</color>
