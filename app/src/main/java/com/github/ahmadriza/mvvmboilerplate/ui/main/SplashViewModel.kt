@@ -1,4 +1,4 @@
-package com.github.ahmadriza.mvvmboilerplate.ui.splash
+package com.github.ahmadriza.mvvmboilerplate.ui.main
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
