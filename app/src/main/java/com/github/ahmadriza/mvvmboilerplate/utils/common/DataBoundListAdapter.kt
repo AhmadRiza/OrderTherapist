@@ -5,7 +5,6 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.yureka.technology.ytc.ui.common.DataBoundViewHolder
 
 abstract class DataBoundListAdapter<T, V : ViewDataBinding>(
     diffCallback: DiffUtil.ItemCallback<T>

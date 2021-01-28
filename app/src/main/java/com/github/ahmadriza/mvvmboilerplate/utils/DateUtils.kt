@@ -36,3 +36,8 @@ fun String.toDateOrNull(
         null
     }
 }
+
+fun Date.toTimeStamp(): String {
+    val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+    return sdf.format(this)
+}

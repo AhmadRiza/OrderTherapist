@@ -1,4 +1,4 @@
-package com.yureka.technology.ytc.ui.common
+package com.github.ahmadriza.mvvmboilerplate.utils.common
 
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
