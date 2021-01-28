@@ -18,12 +18,11 @@
 
     <style name="MText.Headline">
         <item name="android:textSize">@dimen/textHeadline</item>
-        <item name="android:fontFamily">@font/fira_bold</item>
+        <item name="android:fontFamily">@font/fira_medium</item>
     </style>
 
     <style name="MText.SubHeadline" parent="MText.Headline">
         <item name="android:textSize">@dimen/textSubHeadline</item>
-        <item name="android:textAllCaps">true</item>
     </style>
 
     <style name="MText.Title">

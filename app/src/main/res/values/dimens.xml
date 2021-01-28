@@ -4,9 +4,12 @@
     <dimen name="textHeadline">@dimen/_20ssp</dimen>
     <dimen name="textSubHeadline">@dimen/_13ssp</dimen>
     <dimen name="textTitle">@dimen/_15ssp</dimen>
-    <dimen name="textRegular">@dimen/_12ssp</dimen>
+    <dimen name="textRegular">@dimen/_11ssp</dimen>
+    <dimen name="textMini">@dimen/_10ssp</dimen>
 
     <dimen name="parentPadding">@dimen/_12sdp</dimen>
+    <dimen name="standardMargin">@dimen/_8sdp</dimen>
+
 
     <dimen name="roundShape">@dimen/_16sdp</dimen>
     <dimen name="separatorH">@dimen/_1sdp</dimen>
