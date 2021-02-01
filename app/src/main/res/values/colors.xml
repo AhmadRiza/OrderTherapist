@@ -2,14 +2,15 @@
 <resources>
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#FFFFFF</color>
-    <color name="colorAccent">#1EA896</color>
+    <color name="colorAccent">#15A8C2</color>
 
     <color name="colorWhite">#FFFFFF</color>
-    <color name="background">#FFFFFF</color>
+    <color name="background">#F6F7FB</color>
     <color name="separator">#1A293340</color>
+    <color name="disabled">#66293340</color>
     <!--    text-->
 
     <color name="textPrimary">#293340</color>
-    <color name="textSecondary">#474D60</color>
+    <color name="textSecondary">#99293340</color>
 
 </resources>

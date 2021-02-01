@@ -15,4 +15,8 @@
 
     </style>
 
+    <style name="MButtton.Medium">
+        <item name="minHeight">@dimen/_28sdp</item>
+    </style>
+
 </resources>

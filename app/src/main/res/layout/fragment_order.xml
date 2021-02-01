@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btn_back"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:padding="@dimen/_12sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_back" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/title"
+                    style="@style/MText.Subtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center_vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/btn_back"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Buat Pesanan Baru" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:paddingBottom="@dimen/_100sdp"
+                android:clipToPadding="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_title"
+                    style="@style/MText.Title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/parentPadding"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Pesanan #161661711" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/header1"
+                    style="@style/MText.SubHeadline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/parentPadding"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="LAYANAN DIPESAN" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_product"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_marginHorizontal="@dimen/parentPadding"
+                    android:layout_marginTop="@dimen/parentPadding"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/header1"
+                    tools:src="@drawable/spa" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_product_name"
+                    style="@style/MText.Subtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/parentPadding"
+                    android:textSize="@dimen/textRegular"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/img_product"
+                    app:layout_constraintTop_toTopOf="@id/img_product"
+                    tools:text="Pijat Refleski 60 Menit" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_product_price"
+                    style="@style/MText.Subtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/textRegular"
+                    app:layout_constraintStart_toStartOf="@id/tv_product_name"
+                    app:layout_constraintTop_toBottomOf="@id/tv_product_name"
+                    tools:text="Rp100.000" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_product_description"
+                    style="@style/MText.Normal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/parentPadding"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/tv_product_name"
+                    app:layout_constraintTop_toBottomOf="@id/tv_product_price"
+                    tools:lines="5"
+                    tools:text="@tools:sample/lorem/random" />
+
+
+                <View
+                    android:id="@+id/separator1"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@color/background"
+                    app:layout_constraintTop_toBottomOf="@id/tv_product_description" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/separator"
+                    app:layout_constraintTop_toTopOf="@id/separator1" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/header2"
+                    style="@style/MText.SubHeadline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/parentPadding"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/separator1"
+                    tools:text="INFORMASI PEMESANAN" />
+
+                <TextView
+                    android:id="@+id/label_name"
+                    style="@style/MText.Normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/textMini"
+                    android:layout_margin="@dimen/parentPadding"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/header2"
+                    tools:text="Nama Pemesan*" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/label_name"
+                    android:id="@+id/et_name"
+                    android:background="@drawable/shape_form"
+                    android:layout_marginHorizontal="@dimen/parentPadding"
+                    android:layout_marginTop="@dimen/standardMargin"
+                    android:paddingVertical="@dimen/_4sdp"
+                    android:paddingHorizontal="@dimen/_8sdp"
+                    style="@style/MText.Normal"
+                    tools:text="John Doe"
+                    android:hint="Masukkan Nama Pemesan" />
+
+                <TextView
+                    android:id="@+id/label_phone"
+                    style="@style/MText.Normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/textMini"
+                    android:layout_margin="@dimen/parentPadding"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_name"
+                    tools:text="Nomor Hp*" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/label_phone"
+                    android:id="@+id/et_phone"
+                    android:background="@drawable/shape_form"
+                    android:layout_marginHorizontal="@dimen/parentPadding"
+                    android:layout_marginTop="@dimen/standardMargin"
+                    android:paddingVertical="@dimen/_4sdp"
+                    android:paddingHorizontal="@dimen/_8sdp"
+                    style="@style/MText.Normal"
+                    tools:text=""
+                    android:hint="Masukkan Nomor (WA)" />
+
+
+                <TextView
+                    android:id="@+id/label_date"
+                    style="@style/MText.Normal"
+                    android:textSize="@dimen/textMini"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/parentPadding"
+                    android:layout_marginTop="@dimen/parentPadding"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_phone"
+                    tools:text="Tanggal Pemesanan" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/label_date"
+                    android:id="@+id/tv_date"
+                    android:background="@drawable/shape_form"
+                    app:layout_constraintStart_toStartOf="@id/label_date"
+                    android:layout_marginTop="@dimen/standardMargin"
+                    android:paddingVertical="@dimen/_4sdp"
+                    android:paddingHorizontal="@dimen/_8sdp"
+                    style="@style/MText.Normal"
+                    tools:text="18 Agu 2020"
+                    android:elevation="@dimen/_1sdp"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="@dimen/_6sdp"
+                    android:drawableStart="@drawable/ic_date" />
+
+                <TextView
+                    android:id="@+id/label_time"
+                    style="@style/MText.Normal"
+                    android:textSize="@dimen/textMini"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/parentPadding"
+                    app:layout_constraintStart_toEndOf="@id/tv_date"
+                    app:layout_constraintTop_toTopOf="@id/label_date"
+                    tools:text="Jam Pemesanan" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/label_time"
+                    android:id="@+id/tv_time"
+                    android:background="@drawable/shape_form"
+                    app:layout_constraintStart_toStartOf="@id/label_time"
+                    android:layout_marginTop="@dimen/standardMargin"
+                    android:paddingVertical="@dimen/_4sdp"
+                    android:paddingHorizontal="@dimen/_8sdp"
+                    style="@style/MText.Normal"
+                    tools:text="18:30"
+                    android:elevation="@dimen/_1sdp"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="@dimen/_6sdp"
+                    android:drawableStart="@drawable/ic_clock" />
+
+
+                <TextView
+                    android:id="@+id/label_address"
+                    style="@style/MText.Normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/parentPadding"
+                    android:textSize="@dimen/textMini"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_date"
+                    tools:text="Alamat*" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_address"
+                    style="@style/MText.Normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/standardMargin"
+                    android:layout_marginHorizontal="@dimen/parentPadding"
+                    android:background="@drawable/shape_form"
+                    android:hint="Masukkan Alamat"
+                    android:minLines="2"
+                    android:paddingHorizontal="@dimen/_8sdp"
+                    android:paddingVertical="@dimen/_4sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/label_address"
+                    tools:text="" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/MText.Normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pilih Lokasi di Map"
+                    android:elevation="@dimen/_1sdp"
+                    android:drawablePadding="@dimen/_6sdp"
+                    app:drawableLeftCompat="@drawable/ic_placeholder"
+                    android:background="@drawable/shape_form_dashed"
+                    android:paddingVertical="@dimen/_6sdp"
+                    android:paddingHorizontal="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/standardMargin"
+                    android:layout_marginHorizontal="@dimen/parentPadding"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_address" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@color/colorWhite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@color/separator" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/guideline"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_margin="@dimen/parentPadding"
+                tools:text="Rp100.000"
+                style="@style/MText.Subtitle" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.55" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_order"
+                style="@style/MButtton.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/parentPadding"
+                android:minHeight="@dimen/_22sdp"
+                android:text="Pesan Sekarang"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/guideline" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

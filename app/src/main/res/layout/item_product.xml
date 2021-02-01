@@ -34,7 +34,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_name"
-            style="@style/MText.SubHeadline"
+            style="@style/MText.Subtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="2"
