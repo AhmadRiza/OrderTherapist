@@ -10,5 +10,15 @@
             </item>
         </ripple>
     </item>
+    <item android:state_enabled="false">
+        <ripple android:color="?android:colorControlHighlight">
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/background" />
+                    <corners android:radius="@dimen/roundShape" />
+                </shape>
+            </item>
+        </ripple>
+    </item>
 
 </selector>
