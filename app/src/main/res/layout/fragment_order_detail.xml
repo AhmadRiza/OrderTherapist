@@ -4,12 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/view_root"
+        android:fitsSystemWindows="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
 
 
         <com.google.android.material.appbar.AppBarLayout
+            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:elevation="0dp">
@@ -20,8 +23,11 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/btn_back"
+                    android:background="@drawable/bg_white_ripple"
                     android:layout_width="?attr/actionBarSize"
                     android:layout_height="?attr/actionBarSize"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:padding="@dimen/_12sdp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -119,7 +125,7 @@
                     android:layout_margin="@dimen/parentPadding"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/separator0"
-                    tools:text="LAYANAN DIPESAN" />
+                    android:text="LAYANAN DIPESAN" />
 
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -180,7 +186,7 @@
                     android:layout_margin="@dimen/parentPadding"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/separator1"
-                    tools:text="INFORMASI PEMESANAN" />
+                    android:text="INFORMASI PEMESANAN" />
 
                 <TextView
                     android:id="@+id/label_name"
@@ -191,7 +197,7 @@
                     android:textSize="@dimen/textMini"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/header2"
-                    tools:text="Nama Pemesan" />
+                    android:text="Nama Pemesan" />
 
                 <TextView
                     android:id="@+id/tv_name"
@@ -214,7 +220,7 @@
                     android:textSize="@dimen/textMini"
                     app:layout_constraintStart_toStartOf="@+id/label_name"
                     app:layout_constraintTop_toBottomOf="@id/label_name"
-                    tools:text="Nomor Hp" />
+                    android:text="Nomor Hp" />
 
                 <TextView
                     android:id="@+id/label_date"
@@ -225,7 +231,7 @@
                     android:textSize="@dimen/textMini"
                     app:layout_constraintStart_toStartOf="@+id/label_phone"
                     app:layout_constraintTop_toBottomOf="@+id/label_phone"
-                    tools:text="Waktu Pesanan" />
+                    android:text="Waktu Pesanan" />
 
                 <TextView
                     android:id="@+id/label_address"
@@ -236,7 +242,7 @@
                     android:textSize="@dimen/textMini"
                     app:layout_constraintStart_toStartOf="@+id/label_date"
                     app:layout_constraintTop_toBottomOf="@+id/label_date"
-                    tools:text="Alamat" />
+                    android:text="Alamat" />
 
                 <TextView
                     android:id="@+id/tv_phone"
@@ -335,7 +341,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="@+id/tv_therapist_name"
                 app:layout_constraintTop_toBottomOf="@+id/tv_therapist_name"
-                tools:text="Terapis" />
+                android:text="Terapis" />
 
 
             <androidx.appcompat.widget.AppCompatButton

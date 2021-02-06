@@ -35,11 +35,17 @@ class MainRepository @Inject constructor(
 
     fun getOrder(id: String): LiveData<Resource<Order>> = liveData(Dispatchers.IO) {
 
+        val order = Dummy.order
+
         emit(Resource.loading())
-        kotlinx.coroutines.delay(2000)
-        emit(
-            Resource.success(Dummy.order)
-        )
+//        kotlinx.coroutines.delay(2000)
+        emit(Resource.success(order))
+        kotlinx.coroutines.delay(5000)
+        order.status = "Menuju Lokasi"
+        emit(Resource.success(order))
+        kotlinx.coroutines.delay(5000)
+        order.status = "Pesanan Selesai"
+        emit(Resource.success(order))
 
     }
 

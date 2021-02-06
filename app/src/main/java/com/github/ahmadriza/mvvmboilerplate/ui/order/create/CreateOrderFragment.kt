@@ -1,5 +1,6 @@
 package com.github.ahmadriza.mvvmboilerplate.ui.order.create
 
+import androidx.navigation.fragment.findNavController
 import com.github.ahmadriza.mvvmboilerplate.R
 import com.github.ahmadriza.mvvmboilerplate.databinding.FragmentOrderBinding
 import com.github.ahmadriza.mvvmboilerplate.models.Product
@@ -16,6 +17,9 @@ class CreateOrderFragment : BaseFragment<FragmentOrderBinding>() {
     override fun getLayoutResource(): Int = R.layout.fragment_order
 
     override fun initViews() {
+        binding.btnOrder.setOnClickListener {
+            findNavController().navigate(R.id.action_createOrderFragment_to_orderDetailFragment)
+        }
     }
 
     override fun initObservers() {

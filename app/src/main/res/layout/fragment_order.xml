@@ -22,6 +22,7 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/btn_back"
+                    android:background="@drawable/bg_white_ripple"
                     android:layout_width="?attr/actionBarSize"
                     android:layout_height="?attr/actionBarSize"
                     android:padding="@dimen/_12sdp"
