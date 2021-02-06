@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:fitsSystemWindows="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
 
 
         <com.google.android.material.appbar.AppBarLayout
+            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:elevation="0dp">
@@ -20,6 +22,7 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/btn_back"
+                    android:background="@drawable/bg_white_ripple"
                     android:layout_width="?attr/actionBarSize"
                     android:layout_height="?attr/actionBarSize"
                     android:padding="@dimen/_12sdp"
@@ -39,7 +42,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/btn_back"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Beri Penilaian" />
+                    android:text="Beri Penilaian" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -73,7 +76,7 @@
                     app:srcCompat="@drawable/pp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_status"
+                    android:id="@+id/tv_name"
                     style="@style/MText.Title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -87,15 +90,15 @@
 
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_status_info"
+                    android:id="@+id/tv_name_info"
                     style="@style/MText.Normal.Secondary"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_status"
-                    app:layout_constraintStart_toStartOf="@+id/tv_status"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_status"
-                    tools:text="Terapis" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_name"
+                    app:layout_constraintStart_toStartOf="@+id/tv_name"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_name"
+                    android:text="Terapis" />
 
 
                 <androidx.appcompat.widget.AppCompatRatingBar
@@ -110,7 +113,7 @@
                     android:theme="@style/MRatingBar"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_status_info" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_name_info" />
 
 
                 <androidx.appcompat.widget.AppCompatEditText

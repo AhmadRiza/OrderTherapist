@@ -1,10 +1,12 @@
 package com.github.ahmadriza.mvvmboilerplate.ui.order.detail
 
 import android.transition.TransitionManager
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.github.ahmadriza.mvvmboilerplate.R
 import com.github.ahmadriza.mvvmboilerplate.databinding.FragmentOrderDetailBinding
+import com.github.ahmadriza.mvvmboilerplate.ui.order.rate.RateOrderFragment
 import com.github.ahmadriza.mvvmboilerplate.utils.base.BaseFragment
 import com.github.ahmadriza.mvvmboilerplate.utils.formatCurrency
 import com.github.ahmadriza.mvvmboilerplate.utils.gone
@@ -21,7 +23,11 @@ class OrderDetailFragment : BaseFragment<FragmentOrderDetailBinding>() {
 
     override fun initViews() {
         binding.btnRating.setOnClickListener {
-            findNavController().navigate(R.id.action_orderDetailFragment_to_rateOrderFragment)
+            findNavController().navigate(
+                R.id.action_orderDetailFragment_to_rateOrderFragment, bundleOf(
+                    Pair(RateOrderFragment.EXTRA_THERAPIST, vm.order.value?.data?.therapist)
+                )
+            )
         }
     }
 

@@ -15,7 +15,7 @@
             app:destination="@id/createOrderFragment"
             app:enterAnim="@anim/fragment_open_enter"
             app:launchSingleTop="false"
-            app:popExitAnim="@anim/fragment_close_exit" />
+            app:popExitAnim="@anim/fragment_open_exit" />
     </fragment>
     <fragment
         android:id="@+id/createOrderFragment"
@@ -26,7 +26,10 @@
             android:id="@+id/action_createOrderFragment_to_orderDetailFragment"
             app:destination="@id/orderDetailFragment"
             app:enterAnim="@anim/fragment_open_enter"
-            app:popUpTo="@id/navigation_home" />
+            app:launchSingleTop="false"
+            app:popExitAnim="@anim/fragment_open_exit"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/orderDetailFragment"
@@ -35,7 +38,9 @@
         android:label="OrderDetailFragment">
         <action
             android:id="@+id/action_orderDetailFragment_to_rateOrderFragment"
-            app:destination="@id/rateOrderFragment" />
+            app:destination="@id/rateOrderFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_open_exit" />
     </fragment>
     <fragment
         android:id="@+id/rateOrderFragment"
