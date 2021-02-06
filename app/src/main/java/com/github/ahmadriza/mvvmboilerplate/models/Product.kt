@@ -3,7 +3,7 @@ package com.github.ahmadriza.mvvmboilerplate.models
 import com.google.gson.annotations.SerializedName
 
 data class Product(
-    val id: String,
+    val id: String = "",
     val name: String,
     val description: String,
     val duration: String,
@@ -22,4 +22,8 @@ data class ProductCheckoutRequest(
     val latitude: String,
     val longitude: String
 )
+
+
+
+
 

@@ -1,14 +1,14 @@
 package com.github.ahmadriza.mvvmboilerplate.models
 
-import com.google.gson.annotations.SerializedName
-
 data class Order(
 
     val id: String,
-    @SerializedName("order_number") val number: String,
-    @SerializedName("order_date") val date: String,
-    @SerializedName("customer_address") val address: String,
-    @SerializedName("customer_address") val serviceId: String,
+    val number: String,
+    val date: String,
+    var status: String,
+    var info: String,
+    val product: Product,
+    val user: User,
+    var therapist: Therapist?
 
-
-    )
+)

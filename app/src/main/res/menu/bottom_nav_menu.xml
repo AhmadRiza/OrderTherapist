@@ -12,7 +12,7 @@
         android:title="@string/pesanan" />
 
     <item
-        android:id="@+id/navigation_profil"
+        android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_profile"
         android:title="@string/akun" />
 

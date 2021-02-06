@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:fitsSystemWindows="false"
         android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -39,6 +40,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/_100sdp"
                 android:orientation="vertical">
 
                 <View
@@ -56,11 +58,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_200sdp"
                     android:alpha="0.85"
-                    android:paddingBottom="@dimen/_12sdp"
+                    android:paddingBottom="@dimen/_4sdp"
                     android:scaleType="centerCrop"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/spa"
-                    tools:layout_editor_absoluteX="0dp" />
+                    app:srcCompat="@drawable/spa" />
 
                 <View
                     android:layout_width="match_parent"
@@ -91,7 +92,7 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:src="@drawable/men" />
+                            android:src="@drawable/men" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tv_name"
@@ -149,6 +150,7 @@
                     android:layout_margin="@dimen/parentPadding" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_products"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:nestedScrollingEnabled="false"
