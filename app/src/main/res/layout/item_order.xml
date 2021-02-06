@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_ripple"
+        android:paddingBottom="@dimen/_6sdp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_therapist"
+            android:layout_width="@dimen/_42sdp"
+            android:layout_height="@dimen/_42sdp"
+            android:layout_margin="@dimen/standardMargin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/pp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_product_name"
+            style="@style/MText.Normal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/standardMargin"
+            android:maxLines="1"
+            android:textSize="@dimen/textRegular"
+            app:layout_constraintStart_toEndOf="@+id/img_therapist"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Pijat Terapi" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_price"
+            style="@style/MText.Normal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:maxLines="1"
+            android:textSize="@dimen/textRegular"
+            app:layout_constraintEnd_toEndOf="@+id/date"
+            app:layout_constraintTop_toBottomOf="@+id/date"
+            tools:text="Rp150.000" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_therapist_name"
+            style="@style/MText.Normal.Secondary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textSize="@dimen/textMini"
+            app:layout_constraintStart_toStartOf="@+id/tv_product_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_product_name"
+            tools:text="Selena Gomez" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_therapist_rate"
+            style="@style/MText.Normal.Secondary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/standardMargin"
+            android:drawablePadding="@dimen/_4sdp"
+            android:maxLines="1"
+            android:textSize="@dimen/textMini"
+            app:drawableLeftCompat="@drawable/ic_star"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_therapist_name"
+            app:layout_constraintStart_toEndOf="@+id/tv_therapist_name"
+            app:layout_constraintTop_toTopOf="@+id/tv_therapist_name"
+            tools:text="4" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_status"
+            style="@style/MText.Normal.Secondary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/standardMargin"
+            android:maxLines="1"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/textMini"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_therapist_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_therapist_name"
+            tools:text="Menunggu konfirmasi" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/date"
+            style="@style/MText.Normal.Secondary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/standardMargin"
+            android:maxLines="1"
+            android:textSize="@dimen/textMini"
+            app:layout_constraintBottom_toTopOf="@+id/tv_therapist_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_product_name"
+            tools:text="Rabu, 18 Jan 2020" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/hairline"
+            android:background="@color/separator"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

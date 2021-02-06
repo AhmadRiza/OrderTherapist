@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.github.ahmadriza.mvvmboilerplate.R
 import com.github.ahmadriza.mvvmboilerplate.utils.data.autoCleared
 
 /**
@@ -31,6 +33,9 @@ abstract class BaseFragment<T : ViewDataBinding> : Fragment(), IBaseView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViews()
+        view.findViewById<View>(R.id.btn_back)
+            ?.setOnClickListener { findNavController().popBackStack() }
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

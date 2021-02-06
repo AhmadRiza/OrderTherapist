@@ -24,7 +24,7 @@
 
         <item name="android:statusBarColor">#C5C5C5</item>
         <item name="colorPrimaryDark">#C5C5C5</item>
-        <item name="colorPrimary">@color/colorWhite</item>
+        <item name="colorPrimary">@color/white</item>
     </style>
 
     <style name="AppTheme.Transparent" parent="AppTheme">
