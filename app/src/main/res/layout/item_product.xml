@@ -40,7 +40,7 @@
             android:maxLines="2"
             android:includeFontPadding="false"
             android:paddingHorizontal="@dimen/standardMargin"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toTopOf="@id/tv_desc"
             tools:text="Pijat Refleksi" />
 
@@ -48,7 +48,7 @@
             android:id="@+id/tv_desc"
             style="@style/MText.Normal"
             android:layout_width="match_parent"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/white"
             android:layout_marginHorizontal="@dimen/standardMargin"
             android:layout_marginBottom="@dimen/parentPadding"
             android:textSize="@dimen/textMini"
@@ -57,7 +57,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_order"
-            style="@style/MButtton"
+            style="@style/MButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/standardMargin"

@@ -1,12 +1,12 @@
-package com.github.ahmadriza.mvvmboilerplate.ui.home
+package com.github.ahmadriza.mvvmboilerplate.ui.order.detail
 
 import com.github.ahmadriza.mvvmboilerplate.R
-import com.github.ahmadriza.mvvmboilerplate.databinding.FragmentHomeBinding
+import com.github.ahmadriza.mvvmboilerplate.databinding.FragmentOrderDetailBinding
 import com.github.ahmadriza.mvvmboilerplate.utils.base.BaseFragment
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>() {
+class OrderDetailFragment : BaseFragment<FragmentOrderDetailBinding>() {
 
-    override fun getLayoutResource(): Int = R.layout.fragment_home
+    override fun getLayoutResource(): Int = R.layout.fragment_order_detail
 
     override fun initViews() {
         TODO("Not yet implemented")
@@ -19,5 +19,4 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun initData() {
         TODO("Not yet implemented")
     }
-
 }

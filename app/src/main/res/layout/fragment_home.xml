@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:background="@color/colorWhite"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -13,7 +13,7 @@
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorWhite"
+            android:background="@color/white"
             app:elevation="0dp">
 
 
@@ -41,14 +41,26 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:background="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@id/img_figure"
+                    app:layout_constraintEnd_toEndOf="@id/img_figure"
+                    app:layout_constraintStart_toStartOf="@id/img_figure"
+                    app:layout_constraintTop_toTopOf="@+id/img_figure" />
+
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/img_figure"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_200sdp"
+                    android:alpha="0.85"
                     android:paddingBottom="@dimen/_12sdp"
+                    android:scaleType="centerCrop"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/spa"
-                    android:scaleType="centerCrop"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_200sdp" />
+                    tools:layout_editor_absoluteX="0dp" />
 
                 <View
                     android:layout_width="match_parent"
@@ -113,6 +125,7 @@
                             android:drawablePadding="@dimen/_4sdp"
                             android:paddingHorizontal="@dimen/_4sdp"
                             android:paddingVertical="@dimen/_2sdp"
+                            app:drawableTint="@color/colorAccent"
                             app:drawableLeftCompat="@drawable/ic_add"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -131,7 +144,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/MText.Subtitle"
-                    android:text="Layanan Kami"
+                    android:text="Layanan Utama"
                     app:layout_constraintTop_toBottomOf="@id/view_info"
                     android:layout_margin="@dimen/parentPadding" />
 

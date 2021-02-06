@@ -6,13 +6,12 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorWhite">
+        android:background="@color/white">
 
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:elevation="0dp">
+            android:layout_height="wrap_content">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -318,7 +317,7 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:background="@color/colorWhite"
+            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom">
@@ -351,11 +350,10 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_order"
-                style="@style/MButtton.Medium"
+                style="@style/MButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/parentPadding"
-                android:minHeight="@dimen/_22sdp"
                 android:text="Pesan Sekarang"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"

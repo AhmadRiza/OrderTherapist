@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btn_back"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:padding="@dimen/_12sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_back" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/title"
+                    style="@style/MText.Subtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center_vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/btn_back"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Beri Penilaian" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:paddingBottom="@dimen/_100sdp">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_figure"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/parentPadding"
+                    android:layout_marginHorizontal="@dimen/_115sdp"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/pp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_status"
+                    style="@style/MText.Title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/parentPadding"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/longMargin"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/img_figure"
+                    tools:text="Selena Gomez" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_status_info"
+                    style="@style/MText.Normal.Secondary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_status"
+                    app:layout_constraintStart_toStartOf="@+id/tv_status"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_status"
+                    tools:text="Terapis" />
+
+
+                <androidx.appcompat.widget.AppCompatRatingBar
+                    android:id="@+id/appCompatRatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/standardMargin"
+                    android:numStars="5"
+                    android:rating="4"
+                    android:scaleX=".85"
+                    android:scaleY=".85"
+                    android:theme="@style/MRatingBar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_status_info" />
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/appCompatEditText"
+                    style="@style/MText.Normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/parentPadding"
+                    android:layout_marginTop="@dimen/standardMargin"
+                    android:background="@drawable/shape_form"
+                    android:gravity="start"
+                    android:hint="Beri komentar (Opsional)..."
+                    android:minLines="5"
+                    android:padding="@dimen/standardMargin"
+                    app:layout_constraintTop_toBottomOf="@+id/appCompatRatingBar"
+                    tools:layout_editor_absoluteX="16dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/MButton.Medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="KIRIM PENILAIAN"
+                    android:layout_marginTop="@dimen/_32sdp"
+                    app:layout_constraintEnd_toEndOf="@+id/appCompatEditText"
+                    app:layout_constraintStart_toStartOf="@+id/appCompatEditText"
+                    app:layout_constraintTop_toBottomOf="@+id/appCompatEditText" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

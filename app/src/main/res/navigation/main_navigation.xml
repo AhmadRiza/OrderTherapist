@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main_navigation">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/homeFragment">
 
+    <fragment
+        android:id="@+id/homeFragment"
+        tools:layout="@layout/fragment_home"
+        android:name="com.github.ahmadriza.mvvmboilerplate.ui.home.HomeFragment"
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/action_homeFragment_to_createOrderFragment"
+            app:destination="@id/createOrderFragment"
+            app:launchSingleTop="false" />
+        <action
+            android:id="@+id/action_homeFragment_to_orderDetailFragment"
+            app:destination="@id/orderDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createOrderFragment"
+        tools:layout="@layout/fragment_order"
+        android:name="com.github.ahmadriza.mvvmboilerplate.ui.order.create.CreateOrderFragment"
+        android:label="CreateOrderFragment">
+        <action
+            android:id="@+id/action_createOrderFragment_to_orderDetailFragment"
+            app:destination="@id/orderDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderDetailFragment"
+        tools:layout="@layout/fragment_order_detail"
+        android:name="com.github.ahmadriza.mvvmboilerplate.ui.order.detail.OrderDetailFragment"
+        android:label="OrderDetailFragment">
+        <action
+            android:id="@+id/action_orderDetailFragment_to_rateOrderFragment"
+            app:destination="@id/rateOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rateOrderFragment"
+        tools:layout="@layout/fragment_order_rating"
+        android:name="com.github.ahmadriza.mvvmboilerplate.ui.order.rate.RateOrderFragment"
+        android:label="RateOrderFragment" />
 </navigation>

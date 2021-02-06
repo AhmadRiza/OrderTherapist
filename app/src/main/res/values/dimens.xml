@@ -3,7 +3,7 @@
 
     <dimen name="textHeadline">@dimen/_20ssp</dimen>
     <dimen name="textSubTitle">@dimen/_12ssp</dimen>
-    <dimen name="textTitle">@dimen/_15ssp</dimen>
+    <dimen name="textTitle">@dimen/_14ssp</dimen>
     <dimen name="textRegular">@dimen/_11ssp</dimen>
     <dimen name="textMini">@dimen/_10ssp</dimen>
 
@@ -14,5 +14,6 @@
 
     <dimen name="roundShape">@dimen/_16sdp</dimen>
     <dimen name="separatorH">@dimen/_1sdp</dimen>
+    <dimen name="hairline">0.8dp</dimen>
 
 </resources>

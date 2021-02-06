@@ -2,8 +2,8 @@
 <resources>
 
     <style name="AppTheme.Light" parent="AppTheme">
-        <item name="android:statusBarColor">@color/colorWhite</item>
-        <item name="colorPrimaryDark">@color/colorWhite</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
 

@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btn_back"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:padding="@dimen/_12sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_back" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/title"
+                    style="@style/MText.Subtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center_vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/btn_back"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Pesanan #177279" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:paddingBottom="@dimen/_100sdp">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_figure"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="@dimen/_110sdp"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_receptionist" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_status"
+                    style="@style/MText.Title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/parentPadding"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/img_figure"
+                    tools:text="Menunggu Konfirmasi" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_status_info"
+                    style="@style/MText.Normal.Secondary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="@dimen/textMini"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_status"
+                    app:layout_constraintStart_toStartOf="@+id/tv_status"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_status"
+                    tools:text="Kami sedang memeriksa pesanan Anda, kami akan menghubungi Anda melalui Whatsapp untuk konfirmasi lebih lanjut" />
+
+
+                <View
+                    android:id="@+id/separator0"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/parentPadding"
+                    android:background="@color/background"
+                    app:layout_constraintTop_toBottomOf="@id/tv_status_info" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/separator"
+                    app:layout_constraintTop_toTopOf="@id/separator0" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/header1"
+                    style="@style/MText.SubHeadline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/parentPadding"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/separator0"
+                    tools:text="LAYANAN DIPESAN" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_product"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_marginHorizontal="@dimen/parentPadding"
+                    android:layout_marginTop="@dimen/parentPadding"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/header1"
+                    tools:src="@drawable/spa" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_product_name"
+                    style="@style/MText.Subtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/parentPadding"
+                    android:textSize="@dimen/textRegular"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/img_product"
+                    app:layout_constraintTop_toTopOf="@id/img_product"
+                    tools:text="Pijat Refleski 60 Menit" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_product_price"
+                    style="@style/MText.Subtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/textRegular"
+                    app:layout_constraintStart_toStartOf="@id/tv_product_name"
+                    app:layout_constraintTop_toBottomOf="@id/tv_product_name"
+                    tools:text="Rp100.000" />
+
+
+                <View
+                    android:id="@+id/separator1"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@color/background"
+                    app:layout_constraintTop_toBottomOf="@id/img_product" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/separator"
+                    app:layout_constraintTop_toTopOf="@id/separator1" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/header2"
+                    style="@style/MText.SubHeadline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/parentPadding"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/separator1"
+                    tools:text="INFORMASI PEMESANAN" />
+
+                <TextView
+                    android:id="@+id/label_name"
+                    style="@style/MText.Normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/parentPadding"
+                    android:textSize="@dimen/textMini"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/header2"
+                    tools:text="Nama Pemesan" />
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    style="@style/MText.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/parentPadding"
+                    android:textSize="@dimen/textMini"
+                    app:layout_constraintBottom_toBottomOf="@+id/label_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/label_name"
+                    tools:text="John Doe" />
+
+                <TextView
+                    android:id="@+id/label_phone"
+                    style="@style/MText.Normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/standardMargin"
+                    android:textSize="@dimen/textMini"
+                    app:layout_constraintStart_toStartOf="@+id/label_name"
+                    app:layout_constraintTop_toBottomOf="@id/label_name"
+                    tools:text="Nomor Hp" />
+
+                <TextView
+                    android:id="@+id/label_date"
+                    style="@style/MText.Normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/standardMargin"
+                    android:textSize="@dimen/textMini"
+                    app:layout_constraintStart_toStartOf="@+id/label_phone"
+                    app:layout_constraintTop_toBottomOf="@+id/label_phone"
+                    tools:text="Waktu Pesanan" />
+
+                <TextView
+                    android:id="@+id/label_address"
+                    style="@style/MText.Normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/standardMargin"
+                    android:textSize="@dimen/textMini"
+                    app:layout_constraintStart_toStartOf="@+id/label_date"
+                    app:layout_constraintTop_toBottomOf="@+id/label_date"
+                    tools:text="Alamat" />
+
+                <TextView
+                    android:id="@+id/tv_phone"
+                    style="@style/MText.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/textMini"
+                    app:layout_constraintBottom_toBottomOf="@+id/label_phone"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_name"
+                    app:layout_constraintTop_toTopOf="@+id/label_phone"
+                    tools:text="089727265615" />
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    style="@style/MText.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/textMini"
+                    app:layout_constraintBottom_toBottomOf="@+id/label_date"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_phone"
+                    app:layout_constraintTop_toTopOf="@+id/label_date"
+                    tools:text="18 Agustus 2020 18:39" />
+
+                <TextView
+                    android:id="@+id/tv_date3"
+                    style="@style/MText.Normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:text="Lihat di Map..."
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/textMini"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_address"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_address" />
+
+                <TextView
+                    android:id="@+id/tv_address"
+                    style="@style/MText.Title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/longMargin"
+                    android:gravity="end"
+                    android:textSize="@dimen/textMini"
+                    app:layout_constraintBottom_toBottomOf="@+id/label_address"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_date"
+                    app:layout_constraintStart_toEndOf="@id/label_address"
+                    app:layout_constraintTop_toTopOf="@+id/label_address"
+                    tools:text="Jln. Pattimura No. 18 Malang " />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/view_therapist"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/white">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/separator"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/appCompatImageView"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_margin="@dimen/parentPadding"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/pp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_therapist_name"
+                style="@style/MText.Subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/parentPadding"
+                app:layout_constraintStart_toEndOf="@+id/appCompatImageView"
+                app:layout_constraintTop_toTopOf="@+id/appCompatImageView"
+                tools:text="Selena Gomez" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_therapist_info"
+                style="@style/MText.Normal.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@+id/tv_therapist_name"
+                app:layout_constraintTop_toBottomOf="@+id/tv_therapist_name"
+                tools:text="Terapis" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_whatsapp"
+                style="@style/MButton"
+                android:layout_marginEnd="@dimen/parentPadding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_button_green"
+                android:drawableStart="@drawable/ic_whatsapp"
+                android:text="HUBUNGI"
+                android:drawablePadding="@dimen/_6sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_rating"
+                style="@style/MButton"
+                android:visibility="gone"
+                android:layout_marginEnd="@dimen/parentPadding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BERI PENILAIAN"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>
