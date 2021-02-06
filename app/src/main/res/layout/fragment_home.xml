@@ -125,6 +125,7 @@
                             android:drawablePadding="@dimen/_4sdp"
                             android:paddingHorizontal="@dimen/_4sdp"
                             android:paddingVertical="@dimen/_2sdp"
+                            app:drawableTint="@color/colorAccent"
                             app:drawableLeftCompat="@drawable/ic_add"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
