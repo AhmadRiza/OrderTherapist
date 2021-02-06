@@ -1,18 +1,21 @@
 package com.github.ahmadriza.mvvmboilerplate.ui.home
 
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.github.ahmadriza.mvvmboilerplate.R
 import com.github.ahmadriza.mvvmboilerplate.databinding.FragmentHomeBinding
-import com.github.ahmadriza.mvvmboilerplate.models.MenuItem
+import com.github.ahmadriza.mvvmboilerplate.models.Product
+import com.github.ahmadriza.mvvmboilerplate.ui.order.create.CreateOrderFragment
 import com.github.ahmadriza.mvvmboilerplate.utils.base.BaseFragment
 import com.github.ahmadriza.mvvmboilerplate.utils.formatCurrency
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : BaseFragment<FragmentHomeBinding>() {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(), ProductAdapter.Listener {
 
     private val vm: HomeVM by viewModels()
-    private val adapter by lazy { ProductAdapter() }
+    private val adapter by lazy { ProductAdapter(this) }
 
     override fun getLayoutResource(): Int = R.layout.fragment_home
 
@@ -35,18 +38,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun initData() = Unit
 
-    private fun getMenus() = mutableListOf(
 
-        MenuItem("Pesan Pijat", R.drawable.ic_hotel) {
-
-        },
-        MenuItem("Pesan Lulur", R.drawable.ic_hotel) {
-
-        },
-        MenuItem("Pesan Terapi", R.drawable.ic_hotel) {
-
-        }
-
-    )
+    override fun onProductOrder(product: Product) {
+        findNavController().navigate(
+            R.id.action_homeFragment_to_createOrderFragment, bundleOf(
+                Pair(CreateOrderFragment.EXTRA_PRODUCT, product)
+            )
+        )
+    }
 
 }

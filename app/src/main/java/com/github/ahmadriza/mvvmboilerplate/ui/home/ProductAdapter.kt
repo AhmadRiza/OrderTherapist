@@ -9,18 +9,19 @@ import com.github.ahmadriza.mvvmboilerplate.utils.common.DataBoundListAdapter
 import com.github.ahmadriza.mvvmboilerplate.utils.formatCurrency
 import com.github.ahmadriza.mvvmboilerplate.utils.getBindingOf
 
-class ProductAdapter : DataBoundListAdapter<Product, ItemProductBinding>(
-    diffCallback = object : DiffUtil.ItemCallback<Product>() {
-        override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
-            return oldItem.id == newItem.id
-        }
+class ProductAdapter(private val listener: Listener? = null) :
+    DataBoundListAdapter<Product, ItemProductBinding>(
+        diffCallback = object : DiffUtil.ItemCallback<Product>() {
+            override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
+                return oldItem.id == newItem.id
+            }
 
-        override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {
-            return oldItem == newItem
-        }
+            override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {
+                return oldItem == newItem
+            }
 
-    }
-) {
+        }
+    ) {
     override fun createBinding(parent: ViewGroup): ItemProductBinding {
         return parent.getBindingOf(R.layout.item_product)
     }
@@ -29,6 +30,12 @@ class ProductAdapter : DataBoundListAdapter<Product, ItemProductBinding>(
         binding.tvName.text = item.name
         binding.tvDesc.text = item.description
         binding.tvPrice.text = "${item.price.formatCurrency()}/${item.duration}"
+        binding.btnOrder.setOnClickListener { listener?.onProductOrder(item) }
+    }
+
+
+    interface Listener {
+        fun onProductOrder(product: Product)
     }
 
 }

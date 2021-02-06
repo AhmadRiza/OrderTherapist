@@ -13,7 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_createOrderFragment"
             app:destination="@id/createOrderFragment"
-            app:launchSingleTop="false" />
+            app:enterAnim="@anim/fragment_open_enter"
+            app:launchSingleTop="false"
+            app:popExitAnim="@anim/fragment_close_exit" />
         <action
             android:id="@+id/action_homeFragment_to_orderDetailFragment"
             app:destination="@id/orderDetailFragment" />

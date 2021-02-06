@@ -4,12 +4,15 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:fitsSystemWindows="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
 
 
         <com.google.android.material.appbar.AppBarLayout
+            app:elevation="0dp"
+            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -38,11 +41,15 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/btn_back"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Buat Pesanan Baru" />
+                    android:text="Buat Pesanan Baru" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/separator" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -78,7 +85,7 @@
                     android:layout_margin="@dimen/parentPadding"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="LAYANAN DIPESAN" />
+                    android:text="LAYANAN DIPESAN" />
 
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -153,7 +160,7 @@
                     android:layout_margin="@dimen/parentPadding"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/separator1"
-                    tools:text="INFORMASI PEMESANAN" />
+                    android:text="INFORMASI PEMESANAN" />
 
                 <TextView
                     android:id="@+id/label_name"
@@ -164,7 +171,7 @@
                     android:layout_margin="@dimen/parentPadding"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/header2"
-                    tools:text="Nama Pemesan*" />
+                    android:text="Nama Pemesan*" />
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:layout_width="match_parent"
@@ -174,7 +181,7 @@
                     android:background="@drawable/shape_form"
                     android:layout_marginHorizontal="@dimen/parentPadding"
                     android:layout_marginTop="@dimen/standardMargin"
-                    android:paddingVertical="@dimen/_4sdp"
+                    android:paddingVertical="@dimen/_6sdp"
                     android:paddingHorizontal="@dimen/_8sdp"
                     style="@style/MText.Normal"
                     tools:text="John Doe"
@@ -189,7 +196,7 @@
                     android:layout_margin="@dimen/parentPadding"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/et_name"
-                    tools:text="Nomor Hp*" />
+                    android:text="Nomor Hp*" />
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:layout_width="match_parent"
@@ -199,7 +206,7 @@
                     android:background="@drawable/shape_form"
                     android:layout_marginHorizontal="@dimen/parentPadding"
                     android:layout_marginTop="@dimen/standardMargin"
-                    android:paddingVertical="@dimen/_4sdp"
+                    android:paddingVertical="@dimen/_6sdp"
                     android:paddingHorizontal="@dimen/_8sdp"
                     style="@style/MText.Normal"
                     tools:text=""
@@ -216,7 +223,7 @@
                     android:layout_marginTop="@dimen/parentPadding"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/et_phone"
-                    tools:text="Tanggal Pemesanan" />
+                    android:text="Tanggal Pemesanan" />
 
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -230,7 +237,7 @@
                     android:paddingVertical="@dimen/_4sdp"
                     android:paddingHorizontal="@dimen/_8sdp"
                     style="@style/MText.Normal"
-                    tools:text="18 Agu 2020"
+                    android:text="18 Agu 2020"
                     android:elevation="@dimen/_1sdp"
                     android:gravity="center_vertical"
                     android:drawablePadding="@dimen/_6sdp"
@@ -245,7 +252,7 @@
                     android:layout_marginStart="@dimen/parentPadding"
                     app:layout_constraintStart_toEndOf="@id/tv_date"
                     app:layout_constraintTop_toTopOf="@id/label_date"
-                    tools:text="Jam Pemesanan" />
+                    android:text="Jam Pemesanan" />
 
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -259,7 +266,7 @@
                     android:paddingVertical="@dimen/_4sdp"
                     android:paddingHorizontal="@dimen/_8sdp"
                     style="@style/MText.Normal"
-                    tools:text="18:30"
+                    android:text="18:30"
                     android:elevation="@dimen/_1sdp"
                     android:gravity="center_vertical"
                     android:drawablePadding="@dimen/_6sdp"
@@ -275,7 +282,7 @@
                     android:textSize="@dimen/textMini"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_date"
-                    tools:text="Alamat*" />
+                    android:text="Alamat*" />
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_address"
@@ -329,6 +336,7 @@
                 android:background="@color/separator" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_total_price"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"

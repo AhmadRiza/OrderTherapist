@@ -10,7 +10,7 @@ object Dummy {
     val user = User(
         name = "John Doe",
         phone = "081237362552",
-        address = "Jln. Pattimura No. 18 Malang "
+        address = "Jln. Pattimura No. 18 Malang ", balance = "1250000"
     )
 
     val products = listOf(
