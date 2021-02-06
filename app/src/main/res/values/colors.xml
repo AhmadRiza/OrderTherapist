@@ -12,5 +12,6 @@
 
     <color name="textPrimary">#293340</color>
     <color name="textSecondary">#99293340</color>
+    <color name="customPrimary">#FF4C51</color>
 
 </resources>

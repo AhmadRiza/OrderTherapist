@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="MButtton">
+    <style name="MButton">
         <item name="android:background">@drawable/bg_button_red</item>
         <item name="android:textAllCaps">true</item>
         <item name="fontFamily">@font/fira_medium</item>
@@ -15,8 +15,18 @@
 
     </style>
 
-    <style name="MButtton.Medium">
+    <style name="MButton.Secondary">
+        <item name="android:background">@drawable/bg_button_secondary</item>
+        <item name="android:textColor">@color/customPrimary</item>
+    </style>
+
+    <style name="MButton.Medium">
         <item name="android:minHeight">@dimen/_28sdp</item>
+    </style>
+
+    <style name="MRatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/textSecondary</item>
+        <item name="colorControlActivated">#FFC107</item>
     </style>
 
 </resources>

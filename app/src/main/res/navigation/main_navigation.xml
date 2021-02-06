@@ -21,7 +21,7 @@
     <fragment
         android:id="@+id/createOrderFragment"
         tools:layout="@layout/fragment_order"
-        android:name="com.github.ahmadriza.mvvmboilerplate.ui.order.CreateOrderFragment"
+        android:name="com.github.ahmadriza.mvvmboilerplate.ui.order.create.CreateOrderFragment"
         android:label="CreateOrderFragment">
         <action
             android:id="@+id/action_createOrderFragment_to_orderDetailFragment"
@@ -31,5 +31,14 @@
         android:id="@+id/orderDetailFragment"
         tools:layout="@layout/fragment_order_detail"
         android:name="com.github.ahmadriza.mvvmboilerplate.ui.order.detail.OrderDetailFragment"
-        android:label="OrderDetailFragment" />
+        android:label="OrderDetailFragment">
+        <action
+            android:id="@+id/action_orderDetailFragment_to_rateOrderFragment"
+            app:destination="@id/rateOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rateOrderFragment"
+        tools:layout="@layout/fragment_order_rating"
+        android:name="com.github.ahmadriza.mvvmboilerplate.ui.order.rate.RateOrderFragment"
+        android:label="RateOrderFragment" />
 </navigation>
