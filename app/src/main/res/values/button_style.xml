@@ -6,8 +6,8 @@
         <item name="android:textAllCaps">true</item>
         <item name="fontFamily">@font/fira_medium</item>
         <item name="android:letterSpacing">0.02</item>
-        <item name="minHeight">@dimen/_24sdp</item>
-        <item name="minWidth">0dp</item>
+        <item name="android:minHeight">@dimen/_24sdp</item>
+        <item name="android:minWidth">0dp</item>
         <item name="android:paddingStart">@dimen/standardMargin</item>
         <item name="android:paddingEnd">@dimen/standardMargin</item>
         <item name="android:textColor">@color/colorWhite</item>
@@ -16,7 +16,7 @@
     </style>
 
     <style name="MButtton.Medium">
-        <item name="minHeight">@dimen/_28sdp</item>
+        <item name="android:minHeight">@dimen/_28sdp</item>
     </style>
 
 </resources>

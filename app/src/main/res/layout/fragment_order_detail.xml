@@ -10,9 +10,9 @@
 
 
         <com.google.android.material.appbar.AppBarLayout
-            app:elevation="0dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:elevation="0dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -64,7 +64,7 @@
                     android:id="@+id/img_figure"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:layout_marginHorizontal="@dimen/_100sdp"
+                    android:layout_marginHorizontal="@dimen/_110sdp"
                     app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -263,14 +263,14 @@
                 <TextView
                     android:id="@+id/tv_date3"
                     style="@style/MText.Normal"
-                    android:textColor="@color/colorAccent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_6sdp"
+                    android:text="Lihat di Map..."
+                    android:textColor="@color/colorAccent"
                     android:textSize="@dimen/textMini"
                     app:layout_constraintEnd_toEndOf="@+id/tv_address"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_address"
-                    android:text="Lihat di Map..." />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_address" />
 
                 <TextView
                     android:id="@+id/tv_address"
@@ -293,16 +293,63 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:background="@color/colorWhite"
+            android:id="@+id/view_therapist"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom">
+            android:layout_gravity="bottom"
+            android:background="@color/colorWhite">
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_1sdp"
+                android:background="@color/separator"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/appCompatImageView"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_margin="@dimen/parentPadding"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:background="@color/separator" />
+                app:srcCompat="@drawable/pp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_therapist_name"
+                style="@style/MText.Subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/parentPadding"
+                app:layout_constraintStart_toEndOf="@+id/appCompatImageView"
+                app:layout_constraintTop_toTopOf="@+id/appCompatImageView"
+                tools:text="Selena Gomez" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_therapist_info"
+                style="@style/MText.Normal.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@+id/tv_therapist_name"
+                app:layout_constraintTop_toBottomOf="@+id/tv_therapist_name"
+                tools:text="Terapis" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_whatsapp"
+                style="@style/MButtton"
+                android:layout_marginEnd="@dimen/parentPadding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_button_green"
+                android:drawableStart="@drawable/ic_whatsapp"
+                android:text="HUBUNGI"
+                android:drawablePadding="@dimen/_6sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
