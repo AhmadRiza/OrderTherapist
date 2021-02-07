@@ -27,8 +27,6 @@ class MainActivity : BaseActivity<ActivityMainNavBinding>(),
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
-//        if(viewModel.isLoggedIn) navController.graph = navController.navInflater.inflate(R.navigation.nav_home_registered)
-//        else navController.graph = navController.navInflater.inflate(R.navigation.nav_home_unregistered)
         navController.graph = navController.navInflater.inflate(R.navigation.main_navigation)
         binding.navView.setupWithNavController(navController)
 
@@ -49,7 +47,7 @@ class MainActivity : BaseActivity<ActivityMainNavBinding>(),
         when (destination.id) {
 
             R.id.navigation_home,
-            R.id.navigation_notifications -> {
+            R.id.navigation_orders -> {
                 binding.bottomAppBar.visible()
             }
 

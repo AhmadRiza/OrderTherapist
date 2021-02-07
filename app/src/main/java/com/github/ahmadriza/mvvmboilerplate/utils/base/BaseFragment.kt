@@ -34,7 +34,7 @@ abstract class BaseFragment<T : ViewDataBinding> : Fragment(), IBaseView {
         super.onViewCreated(view, savedInstanceState)
         initViews()
         view.findViewById<View>(R.id.btn_back)
-            ?.setOnClickListener { findNavController().popBackStack() }
+            ?.setOnClickListener { findNavController().navigateUp() }
 
     }
 

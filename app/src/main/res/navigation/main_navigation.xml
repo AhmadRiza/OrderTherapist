@@ -47,4 +47,17 @@
         tools:layout="@layout/fragment_order_rating"
         android:name="com.github.ahmadriza.mvvmboilerplate.ui.order.rate.RateOrderFragment"
         android:label="RateOrderFragment" />
+
+    <fragment
+        android:id="@+id/navigation_orders"
+        tools:layout="@layout/fragment_orders"
+        android:name="com.github.ahmadriza.mvvmboilerplate.ui.order.list.OrdersFragment"
+        android:label="OrdersFragment">
+        <action
+            android:id="@+id/action_navigation_orders_to_orderDetailFragment"
+            app:destination="@id/orderDetailFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/nav_default_exit_anim"
+            app:popUpTo="@id/navigation_orders" />
+    </fragment>
 </navigation>

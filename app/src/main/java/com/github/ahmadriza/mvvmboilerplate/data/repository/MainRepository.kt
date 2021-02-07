@@ -38,7 +38,7 @@ class MainRepository @Inject constructor(
         val order = Dummy.order
 
         emit(Resource.loading())
-//        kotlinx.coroutines.delay(2000)
+        kotlinx.coroutines.delay(2000)
         emit(Resource.success(order))
         kotlinx.coroutines.delay(5000)
         order.status = "Menuju Lokasi"
@@ -47,6 +47,15 @@ class MainRepository @Inject constructor(
         order.status = "Pesanan Selesai"
         emit(Resource.success(order))
 
+    }
+
+    fun getOrderHistory(): LiveData<Resource<List<Order>>> = liveData(Dispatchers.IO) {
+        val orders = listOf(
+            Dummy.order, Dummy.order, Dummy.order
+        )
+        emit(Resource.loading())
+        kotlinx.coroutines.delay(2000)
+        emit(Resource.success(orders))
     }
 
 }

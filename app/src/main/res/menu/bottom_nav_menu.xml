@@ -7,7 +7,7 @@
         android:title="@string/beranda" />
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_orders"
         android:icon="@drawable/ic_order"
         android:title="@string/pesanan" />
 

@@ -1,8 +1,8 @@
 package com.github.ahmadriza.mvvmboilerplate.ui.home
 
 import androidx.core.os.bundleOf
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navGraphViewModels
 import com.github.ahmadriza.mvvmboilerplate.R
 import com.github.ahmadriza.mvvmboilerplate.databinding.FragmentHomeBinding
 import com.github.ahmadriza.mvvmboilerplate.models.Product
@@ -17,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(), ProductAdapter.Listener {
 
-    private val vm: HomeVM by viewModels()
+    private val vm: HomeVM by navGraphViewModels(R.id.main_navigation) { defaultViewModelProviderFactory }
     private val adapter by lazy { ProductAdapter(this) }
 
     override fun getLayoutResource(): Int = R.layout.fragment_home

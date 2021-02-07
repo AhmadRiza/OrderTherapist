@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.github.ahmadriza.mvvmboilerplate.data.repository.MainRepository
 
 class OrderDetailVM @ViewModelInject constructor(
-    private val repository: MainRepository
+    repository: MainRepository
 ) : ViewModel() {
 
     private val _orderId = MutableLiveData<String>()
