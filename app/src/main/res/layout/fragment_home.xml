@@ -44,6 +44,7 @@
                 android:orientation="vertical">
 
                 <View
+                    android:id="@+id/view"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_marginBottom="@dimen/_4sdp"
@@ -138,7 +139,6 @@
 
                 </androidx.cardview.widget.CardView>
 
-
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/header1"
                     app:layout_constraintStart_toStartOf="parent"
@@ -162,10 +162,25 @@
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:layout_constraintTop_toBottomOf="@id/header1" />
 
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/group_content"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:constraint_referenced_ids="rv_products, header1" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         </androidx.core.widget.NestedScrollView>
+
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/customPrimary" />
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -8,7 +8,10 @@ import com.github.ahmadriza.mvvmboilerplate.databinding.FragmentHomeBinding
 import com.github.ahmadriza.mvvmboilerplate.models.Product
 import com.github.ahmadriza.mvvmboilerplate.ui.order.create.CreateOrderFragment
 import com.github.ahmadriza.mvvmboilerplate.utils.base.BaseFragment
+import com.github.ahmadriza.mvvmboilerplate.utils.data.Resource
 import com.github.ahmadriza.mvvmboilerplate.utils.formatCurrency
+import com.github.ahmadriza.mvvmboilerplate.utils.gone
+import com.github.ahmadriza.mvvmboilerplate.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,8 +30,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), ProductAdapter.Listene
 
     override fun initObservers() {
         vm.products.observe(viewLifecycleOwner) {
-            it.data?.let { adapter.submitList(it) }
+            it.data?.let {
+                adapter.submitList(it)
+                binding.groupContent.visible()
+            }
+            if (it.status == Resource.Status.LOADING) {
+                binding.loading.visible()
+            } else {
+                binding.loading.gone()
+            }
         }
+
         vm.user.observe(viewLifecycleOwner) {
             binding.tvName.text = it.name
             binding.tvAddress.text = it.address

@@ -8,6 +8,7 @@ import com.github.ahmadriza.mvvmboilerplate.R
 import com.github.ahmadriza.mvvmboilerplate.databinding.FragmentOrderDetailBinding
 import com.github.ahmadriza.mvvmboilerplate.ui.order.rate.RateOrderFragment
 import com.github.ahmadriza.mvvmboilerplate.utils.base.BaseFragment
+import com.github.ahmadriza.mvvmboilerplate.utils.data.Resource
 import com.github.ahmadriza.mvvmboilerplate.utils.formatCurrency
 import com.github.ahmadriza.mvvmboilerplate.utils.gone
 import com.github.ahmadriza.mvvmboilerplate.utils.loadRoundImage
@@ -29,6 +30,9 @@ class OrderDetailFragment : BaseFragment<FragmentOrderDetailBinding>() {
                 )
             )
         }
+
+        binding.swipe.setOnRefreshListener { vm.loadOrder("") }
+
     }
 
     override fun initObservers() {
@@ -63,6 +67,7 @@ class OrderDetailFragment : BaseFragment<FragmentOrderDetailBinding>() {
 
             }
 
+            binding.swipe.isRefreshing = it.status == Resource.Status.LOADING
 
         }
     }
