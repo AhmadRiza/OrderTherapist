@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:fitsSystemWindows="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
 
 
         <com.google.android.material.appbar.AppBarLayout
+            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:elevation="0dp">
@@ -19,16 +20,25 @@
                 android:id="@+id/title"
                 style="@style/MText.Subtitle"
                 android:layout_width="match_parent"
-                android:gravity="center_vertical"
+                android:gravity="start|bottom"
                 android:paddingHorizontal="@dimen/parentPadding"
-                android:layout_height="?attr/actionBarSize"
-                tools:text="Pesanan Saya" />
+                android:layout_height="@dimen/_32sdp"
+                android:text="Pesanan Saya" />
 
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab"
+                app:tabTextColor="@color/textSecondary"
+                app:tabSelectedTextColor="@color/customPrimary"
+                app:tabTextAppearance="@style/MTabText"
+                app:tabMode="scrollable"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/separator" />
 
         </com.google.android.material.appbar.AppBarLayout>
 

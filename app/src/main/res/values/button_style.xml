@@ -22,11 +22,19 @@
 
     <style name="MButton.Medium">
         <item name="android:minHeight">@dimen/_28sdp</item>
+        <item name="android:textSize">@dimen/textSubTitle</item>
     </style>
 
     <style name="MRatingBar" parent="Theme.AppCompat">
         <item name="colorControlNormal">@color/textSecondary</item>
         <item name="colorControlActivated">#FFC107</item>
+    </style>
+
+    <style name="MTabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">@dimen/textRegular</item>
+        <item name="android:fontFamily">@font/fira_medium</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="textAllCaps">false</item>
     </style>
 
 </resources>

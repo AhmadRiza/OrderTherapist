@@ -1,16 +1,19 @@
 package com.github.ahmadriza.mvvmboilerplate.models
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Product(
-    val id: String,
+    val id: String = "",
     val name: String,
     val description: String,
     val duration: String,
     val price: String,
     val thumbnail: String,
     val status: String,
-) {
+) : Parcelable {
 
     fun isActive() = status == "aktif"
 
@@ -22,4 +25,8 @@ data class ProductCheckoutRequest(
     val latitude: String,
     val longitude: String
 )
+
+
+
+
 
