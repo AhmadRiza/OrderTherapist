@@ -15,5 +15,6 @@
     <dimen name="roundShape">@dimen/_16sdp</dimen>
     <dimen name="separatorH">@dimen/_1sdp</dimen>
     <dimen name="hairline">0.8dp</dimen>
+    <dimen name="buttonCorner">@dimen/_12sdp</dimen>
 
 </resources>

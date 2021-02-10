@@ -23,12 +23,19 @@ class MainActivity : BaseActivity<ActivityMainNavBinding>(),
 
     override fun initViews() {
 
+        val isLogin = false
+
         val navHostFragment: NavHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
-        navController.graph = navController.navInflater.inflate(R.navigation.main_navigation)
-        binding.navView.setupWithNavController(navController)
+        if (isLogin) {
+            navController.graph = navController.navInflater.inflate(R.navigation.main_navigation)
+            binding.navView.setupWithNavController(navController)
+        } else {
+            navController.graph = navController.navInflater.inflate(R.navigation.auth_navigation)
+            binding.navView.gone()
+        }
 
         makeStatusBarTransparent()
     }

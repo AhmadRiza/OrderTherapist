@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.4" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_figure"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:alpha="0.9"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="@id/guideline"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/spa" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:alpha="0.4"
+                android:background="@drawable/shape_shadow_bottom"
+                app:layout_constraintBottom_toTopOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/img_figure" />
+
+            <TextView
+                android:id="@+id/textView"
+                style="@style/MText.SubHeadline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LOGO"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textHeadline"
+                app:layout_constraintBottom_toTopOf="@+id/guideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/img_figure" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_email"
+                style="@style/MText.Normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_42sdp"
+                android:background="@drawable/shape_form_rounder"
+                android:drawableStart="@drawable/ic_email"
+                android:drawablePadding="@dimen/standardMargin"
+                android:gravity="center_vertical"
+                android:hint="Masukkan email"
+                tools:text="riza.public@gmail.com"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="@dimen/_12sdp"
+                android:paddingVertical="@dimen/_8sdp"
+                android:textColorHint="@color/textSecondary"
+                android:textSize="@dimen/textSubTitle"
+                app:drawableTint="@color/customPrimary"
+                app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_password"
+                style="@style/MText.Normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/parentPadding"
+                android:background="@drawable/shape_form_rounder"
+                android:drawableStart="@drawable/ic_padlock"
+                android:drawablePadding="@dimen/standardMargin"
+                android:gravity="center_vertical"
+                android:hint="Masukkan kata sandi"
+                android:inputType="textPassword"
+                android:paddingHorizontal="@dimen/_12sdp"
+                android:paddingVertical="@dimen/_8sdp"
+                android:textColorHint="@color/textSecondary"
+                android:textSize="@dimen/textSubTitle"
+                app:drawableTint="@color/customPrimary"
+                app:layout_constraintTop_toBottomOf="@+id/et_email"
+                tools:layout_editor_absoluteX="33dp" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btn_show_password"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="0dp"
+                app:srcCompat="@drawable/ic_visible"
+                android:padding="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:tint="@color/textPrimary"
+                app:layout_constraintEnd_toEndOf="@id/et_password"
+                app:layout_constraintTop_toTopOf="@id/et_password"
+                app:layout_constraintBottom_toBottomOf="@id/et_password" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_sign_in"
+                style="@style/MButton.Medium"
+                android:layout_width="346dp"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/_34sdp"
+                android:text="MASUK"
+                android:layout_marginTop="@dimen/longMargin"
+                app:layout_constraintEnd_toEndOf="@+id/btn_forgot_password"
+                app:layout_constraintStart_toStartOf="@+id/et_password"
+                app:layout_constraintTop_toBottomOf="@+id/btn_forgot_password" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btn_forgot_password"
+                style="@style/MText.Subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/parentPadding"
+                android:text="Lupa kata sandi?"
+                android:textColor="@color/customPrimary"
+                android:textSize="@dimen/textRegular"
+                app:layout_constraintEnd_toEndOf="@+id/et_password"
+                app:layout_constraintTop_toBottomOf="@+id/et_password" />
+
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/_32sdp"
+                app:layout_constraintStart_toStartOf="@id/btn_sign_in"
+                app:layout_constraintEnd_toEndOf="@id/btn_sign_in"
+                app:layout_constraintTop_toBottomOf="@id/btn_sign_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/MText.Normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Belum punya akun?" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/btn_sign_up"
+                    style="@style/MText.Subtitle"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:textSize="@dimen/textRegular"
+                    android:textColor="@color/customPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Daftar sekarang" />
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

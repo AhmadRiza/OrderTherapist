@@ -8,8 +8,8 @@
         <item name="android:letterSpacing">0.02</item>
         <item name="android:minHeight">@dimen/_24sdp</item>
         <item name="android:minWidth">0dp</item>
-        <item name="android:paddingStart">@dimen/standardMargin</item>
-        <item name="android:paddingEnd">@dimen/standardMargin</item>
+        <item name="android:paddingStart">@dimen/_12sdp</item>
+        <item name="android:paddingEnd">@dimen/_12sdp</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/textMini</item>
 
@@ -22,7 +22,7 @@
 
     <style name="MButton.Medium">
         <item name="android:minHeight">@dimen/_28sdp</item>
-        <item name="android:textSize">@dimen/textSubTitle</item>
+        <item name="android:textSize">@dimen/textRegular</item>
     </style>
 
     <style name="MRatingBar" parent="Theme.AppCompat">
