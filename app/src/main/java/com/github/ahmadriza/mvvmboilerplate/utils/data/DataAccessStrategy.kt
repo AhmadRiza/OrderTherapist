@@ -6,7 +6,6 @@ import androidx.lifecycle.map
 import com.github.ahmadriza.mvvmboilerplate.utils.data.Resource.Status.ERROR
 import com.github.ahmadriza.mvvmboilerplate.utils.data.Resource.Status.SUCCESS
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 
 /*
 * Perform get saved data then update it the remote
@@ -32,9 +31,9 @@ fun <T, A> performLazyGetOperation(
         }
     }
 
-fun <T> performApiCall(
+fun <T> performOperation(
     networkCall: suspend () -> Resource<T>,
-    saveCallResult: suspend (T) -> Unit
+    saveCallResult: (suspend (T) -> Unit)? = null,
 ): LiveData<Resource<T>> =
     liveData(Dispatchers.IO) {
         emit(Resource.loading())
@@ -42,7 +41,7 @@ fun <T> performApiCall(
         val responseStatus = networkCall.invoke()
 
         if (responseStatus.status == SUCCESS) {
-            saveCallResult(responseStatus.data!!)
+            saveCallResult?.invoke(responseStatus.data!!)
             emit(responseStatus)
         } else if (responseStatus.status == ERROR) {
             emit(Resource.error(responseStatus.message!!))
@@ -50,23 +49,6 @@ fun <T> performApiCall(
 
     }
 
-
-
-
-fun <T> performOperation(
-    operation: suspend () -> Resource<T>, delayTime: Long = 0L
-): LiveData<Resource<T>> =
-    liveData(Dispatchers.IO) {
-        emit(Resource.loading())
-        delay(delayTime)
-        val responseStatus = operation.invoke()
-        if (responseStatus.status == SUCCESS) {
-            emit(responseStatus)
-        } else if (responseStatus.status == ERROR) {
-            emit(Resource.error(responseStatus.message!!))
-        }
-
-    }
 
 
 

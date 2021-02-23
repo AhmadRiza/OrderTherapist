@@ -4,19 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_white_ripple"
     android:clipChildren="false"
-    android:clipToPadding="false"
-    android:paddingVertical="@dimen/_8sdp">
+    android:clipToPadding="false">
 
     <androidx.appcompat.widget.AppCompatTextView
-        style="@style/MText.Title"
+        style="@style/MText.Normal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_24sdp"
+        android:layout_marginHorizontal="@dimen/parentPadding"
+        android:layout_marginVertical="@dimen/_10sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Ubah Bahasa" />
 
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/parentPadding"
+        android:layout_height="@dimen/separatorH"
+        android:background="@color/separator"
+        app:layout_constraintBottom_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="@dimen/_3sdp"
+        android:layout_marginEnd="@dimen/parentPadding"
+        android:layout_width="@dimen/_16sdp"
+        android:layout_height="@dimen/_16sdp"
+        app:tint="@color/textPrimary"
+        app:srcCompat="@drawable/ic_right_arrow" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

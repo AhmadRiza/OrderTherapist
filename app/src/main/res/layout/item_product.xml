@@ -66,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/standardMargin"
-                android:layout_marginBottom="@dimen/_16sdp"
+                android:layout_marginBottom="@dimen/parentPadding"
                 android:minHeight="@dimen/_22sdp"
                 android:text="Pesan Sekarang"
                 app:layout_constraintBottom_toBottomOf="parent" />

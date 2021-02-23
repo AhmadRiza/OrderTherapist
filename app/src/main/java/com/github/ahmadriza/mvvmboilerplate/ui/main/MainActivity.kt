@@ -23,7 +23,7 @@ class MainActivity : BaseActivity<ActivityMainNavBinding>(),
 
     override fun initViews() {
 
-        val isLogin = false
+        val isLogin = true
 
         val navHostFragment: NavHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
