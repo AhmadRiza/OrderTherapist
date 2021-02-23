@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.github.ahmadriza.mvvmboilerplate.data.Dummy
 import com.github.ahmadriza.mvvmboilerplate.data.local.LocalDataSource
-import com.github.ahmadriza.mvvmboilerplate.models.Order
-import com.github.ahmadriza.mvvmboilerplate.models.Product
-import com.github.ahmadriza.mvvmboilerplate.models.User
+import com.github.ahmadriza.mvvmboilerplate.data.remote.RemoteDataSource
+import com.github.ahmadriza.mvvmboilerplate.models.*
 import com.github.ahmadriza.mvvmboilerplate.utils.data.Resource
+import com.github.ahmadriza.mvvmboilerplate.utils.data.performOperation
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
 
@@ -16,8 +16,18 @@ import javax.inject.Inject
  */
 
 class MainRepository @Inject constructor(
-    private val localDataSource: LocalDataSource
+    private val local: LocalDataSource,
+    private val remote: RemoteDataSource
 ) {
+
+    fun login(
+        request: LoginRequest
+    ): LiveData<Resource<LoginResponse>> = performOperation({
+        remote.login(request)
+    }) {
+        local.saveToken(it.token)
+    }
+
 
     fun getProducts(): LiveData<Resource<List<Product>>> = liveData(Dispatchers.IO) {
 
