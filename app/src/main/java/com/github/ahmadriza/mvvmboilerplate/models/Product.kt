@@ -13,11 +13,14 @@ data class Product(
     val price: String,
     val thumbnail: String,
     val status: String,
+    val category: ProductCategory
 ) : Parcelable {
 
     fun isActive() = status == "aktif"
 
 }
+
+data class ProductCategory(val id: String, val name: String, val thumbnail: String)
 
 data class ProductCheckoutRequest(
     @SerializedName("customer_address") val address: String,

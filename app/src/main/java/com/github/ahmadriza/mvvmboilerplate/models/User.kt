@@ -1,29 +1,50 @@
 package com.github.ahmadriza.mvvmboilerplate.models
 
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 
 data class User(
-    val id: String = "",
+    @SerializedName("user_id") val id: String = "",
     val name: String,
     val address: String,
-    val phone: String,
-    val balance: String = ""
+    @SerializedName("phone_number") val phone: String,
+    val balance: String = "0",
+    val gender: String,
+    val email: String
 )
 
 @Parcelize
 data class Therapist(
     val id: String = "",
     val name: String,
-    val photo: String,
-    val phone: String
+    val avatar: String,
+    val age: Int,
+    val gender: String,
+    @SerializedName("phone_number") val phone: String
 ) : Parcelable
 
 data class LoginRequest(
     val email: String, val password: String
 )
 
+data class ForgotPasswordRequest(val email: String)
+
 data class LoginResponse(
-    val token: String
+    @SerializedName("access_token") val token: String,
+    val data: User
 )
+
+//register
+data class RegisterRequest(
+    val name: String,
+    val address: String,
+    val age: Int,
+    val gender: String,
+    @SerializedName("phone_number") val phone: String,
+    val email: String,
+    val password: String,
+    @SerializedName("password_confirmation") val passwordConfirm: String = password
+)
+

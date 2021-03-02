@@ -43,29 +43,13 @@ class MainRepository @Inject constructor(
         emit(Dummy.user)
     }
 
-    fun getOrder(id: String): LiveData<Resource<Order>> = liveData(Dispatchers.IO) {
+    fun getOrder(id: String): LiveData<Resource<OrderDetail>> = liveData(Dispatchers.IO) {
 
-        val order = Dummy.order
-
-        emit(Resource.loading())
-        kotlinx.coroutines.delay(2000)
-        emit(Resource.success(order))
-        kotlinx.coroutines.delay(5000)
-        order.status = "Menuju Lokasi"
-        emit(Resource.success(order))
-        kotlinx.coroutines.delay(5000)
-        order.status = "Pesanan Selesai"
-        emit(Resource.success(order))
 
     }
 
     fun getOrderHistory(): LiveData<Resource<List<Order>>> = liveData(Dispatchers.IO) {
-        val orders = listOf(
-            Dummy.order, Dummy.order, Dummy.order
-        )
-        emit(Resource.loading())
-        kotlinx.coroutines.delay(2000)
-        emit(Resource.success(orders))
+
     }
 
 }
