@@ -42,6 +42,11 @@ class MainRepository @Inject constructor(
         }
     }
 
+    fun logOut() = liveData(Dispatchers.IO) {
+        local.logOut()
+        emit(true)
+    }
+
     fun getProducts() = performOperation({
         remote.getProducts()
     })

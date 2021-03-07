@@ -60,4 +60,9 @@
             app:popExitAnim="@anim/nav_default_exit_anim"
             app:popUpTo="@id/navigation_orders" />
     </fragment>
+    <fragment
+        tools:layout="@layout/fragment_profile"
+        android:id="@+id/navigation_profile"
+        android:name="com.github.ahmadriza.mvvmboilerplate.ui.profile.ProfileFragment"
+        android:label="ProfileFragment" />
 </navigation>

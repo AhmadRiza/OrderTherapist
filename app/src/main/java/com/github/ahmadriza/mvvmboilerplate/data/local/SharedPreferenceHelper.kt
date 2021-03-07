@@ -28,4 +28,6 @@ class SharedPreferenceHelper @Inject constructor(
         null
     }
 
+    fun logOut() = sharedPreferences.edit().clear()
+
 }

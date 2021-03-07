@@ -77,7 +77,10 @@ object AppModule {
     fun provideJsonInterceptor(): JsonInterceptor = JsonInterceptor()
 
     @Provides
-    fun provideAuthInterceptor(): AuthInterceptor = AuthInterceptor()
+    fun provideAuthInterceptor(
+        pref: SharedPreferenceHelper
+    )
+            : AuthInterceptor = AuthInterceptor(pref.getToken())
 
     @Provides
     fun provideLogInterceptor(): HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
