@@ -91,10 +91,23 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <TextView
+                    android:id="@+id/label_age"
+                    style="@style/MText.Normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/parentPadding"
+                    android:text="Umur"
+                    android:textSize="@dimen/textMini"
+                    app:layout_constraintStart_toEndOf="@id/et_name"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_name"
                     style="@style/MText.Normal"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:inputType="textPersonName"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/parentPadding"
                     android:layout_marginTop="@dimen/standardMargin"
@@ -103,10 +116,28 @@
                     android:paddingHorizontal="@dimen/_8sdp"
                     android:paddingVertical="@dimen/_6sdp"
                     android:paddingStart="@dimen/_50sdp"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/label_name" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_age"
+                    style="@style/MText.Normal"
+                    android:layout_width="0dp"
+                    android:inputType="number"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/parentPadding"
+                    android:layout_marginTop="@dimen/standardMargin"
+                    android:background="@drawable/shape_form"
+                    android:hint="XX Tahun"
+                    android:paddingHorizontal="@dimen/_8sdp"
+                    android:paddingVertical="@dimen/_6sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/label_age"
+                    app:layout_constraintTop_toBottomOf="@id/label_age" />
 
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_gender"
                     style="@style/MText.Subtitle"
                     android:layout_width="@dimen/_40sdp"
                     android:layout_height="0dp"
@@ -190,9 +221,9 @@
                     android:layout_marginHorizontal="@dimen/parentPadding"
                     android:layout_marginTop="@dimen/standardMargin"
                     android:background="@drawable/shape_form"
+                    android:gravity="start"
                     android:hint="Masukkan Alamat"
                     android:minLines="4"
-                    android:gravity="start"
                     android:paddingHorizontal="@dimen/_8sdp"
                     android:paddingVertical="@dimen/_4sdp"
                     app:layout_constraintTop_toBottomOf="@+id/label_address"
@@ -202,6 +233,7 @@
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_pass1"
                     style="@style/MText.Normal"
+                    android:inputType="textPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/parentPadding"
@@ -228,6 +260,7 @@
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_pass2"
                     style="@style/MText.Normal"
+                    android:inputType="textPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/parentPadding"
@@ -273,7 +306,7 @@
 
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_order"
+                android:id="@+id/btn_register"
                 style="@style/MButton.Medium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

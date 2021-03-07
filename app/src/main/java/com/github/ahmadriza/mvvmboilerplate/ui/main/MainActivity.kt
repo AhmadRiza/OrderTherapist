@@ -1,6 +1,7 @@
 package com.github.ahmadriza.mvvmboilerplate.ui.main
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
@@ -17,19 +18,18 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainNavBinding>(),
     NavController.OnDestinationChangedListener {
 
+    private val vm: MainVM by viewModels()
     private lateinit var navController: NavController
 
     override fun getLayoutResource(): Int = R.layout.activity_main_nav
 
     override fun initViews() {
 
-        val isLogin = true
-
         val navHostFragment: NavHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
-        if (isLogin) {
+        if (vm.isLoggedin()) {
             navController.graph = navController.navInflater.inflate(R.navigation.main_navigation)
             binding.navView.setupWithNavController(navController)
         } else {

@@ -20,7 +20,8 @@ data class Product(
 
 }
 
-data class ProductCategory(val id: String, val name: String, val thumbnail: String)
+@Parcelize
+data class ProductCategory(val id: String, val name: String, val thumbnail: String) : Parcelable
 
 data class ProductCheckoutRequest(
     @SerializedName("customer_address") val address: String,

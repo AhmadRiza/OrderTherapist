@@ -1,6 +1,9 @@
 package com.github.ahmadriza.mvvmboilerplate.data.remote
 
 import com.github.ahmadriza.mvvmboilerplate.utils.data.Resource
+import okhttp3.ResponseBody
+import org.json.JSONException
+import org.json.JSONObject
 import retrofit2.Response
 import timber.log.Timber
 
@@ -13,7 +16,9 @@ abstract class BaseRemoteDataSource {
                 val body = response.body()
                 if (body != null) return Resource.success(body)
             }
-            return error(" ${response.code()} ${response.message()}")
+
+            return error(parseError(response.errorBody()))
+
         } catch (e: Exception) {
             return error(e.message ?: e.toString())
         }
@@ -21,7 +26,21 @@ abstract class BaseRemoteDataSource {
 
     private fun <T> error(message: String): Resource<T> {
         Timber.d(message)
-        return Resource.error("Network call has failed for a following reason: $message")
+        return Resource.error(message)
+    }
+
+    private fun parseError(body: ResponseBody?): String {
+
+        if (body == null) return "Terjadi kesalahan, mohon coba kembali"
+
+        val json = JSONObject(body.string())
+
+        return try {
+            json.getString("message")
+        } catch (e: JSONException) {
+            "Terjadi kesalahan, mohon coba kembali"
+        }
+
     }
 
 }

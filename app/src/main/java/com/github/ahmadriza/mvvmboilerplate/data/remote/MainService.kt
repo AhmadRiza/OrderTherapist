@@ -2,18 +2,15 @@ package com.github.ahmadriza.mvvmboilerplate.data.remote
 
 import com.github.ahmadriza.mvvmboilerplate.models.*
 import retrofit2.Response
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.PUT
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface MainService {
 
     @POST("api/customer/login")
-    fun login(request: LoginRequest): Response<LoginResponse>
+    suspend fun login(@Body request: LoginRequest): Response<LoginResponse>
 
     @POST("api/customer/register")
-    fun register(request: RegisterRequest): Response<BaseResponse<User>>
+    suspend fun register(@Body request: RegisterRequest): Response<BaseResponse<User>>
 
     @POST("/api/customer/logout")
     fun logout(): Response<BaseResponse<Any>>

@@ -12,6 +12,7 @@ class LoginVM @ViewModelInject constructor(
 ) : ViewModel() {
 
     private val _request = MutableLiveData<LoginRequest>()
+    val user = repository.getUser()
 
     val response = Transformations.switchMap(_request) {
         repository.login(it)

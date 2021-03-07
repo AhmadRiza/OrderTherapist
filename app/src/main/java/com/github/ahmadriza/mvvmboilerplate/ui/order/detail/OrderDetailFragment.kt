@@ -45,10 +45,10 @@ class OrderDetailFragment : BaseFragment<FragmentOrderDetailBinding>() {
                 binding.imgProduct.loadRoundImage(R.drawable.spa)
                 binding.tvStatus.text = it.status
                 binding.tvStatusInfo.text = it.info
-                binding.tvName.text = it.user.name
-                binding.tvAddress.text = it.user.address
                 binding.tvDate.text = it.date
-                binding.tvPhone.text = it.user.phone
+//                binding.tvName.text = it.user.name
+//                binding.tvAddress.text = it.user.address
+//                binding.tvPhone.text = it.user.phone
                 binding.tvTherapistName.text = it.therapist?.name
 
 
