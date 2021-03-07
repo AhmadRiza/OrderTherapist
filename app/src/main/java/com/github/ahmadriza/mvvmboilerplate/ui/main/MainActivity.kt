@@ -52,9 +52,9 @@ class MainActivity : BaseActivity<ActivityMainNavBinding>(),
         arguments: Bundle?
     ) {
         when (destination.id) {
-
             R.id.navigation_home,
-            R.id.navigation_orders -> {
+            R.id.navigation_orders,
+            R.id.navigation_profile -> {
                 binding.bottomAppBar.visible()
             }
 

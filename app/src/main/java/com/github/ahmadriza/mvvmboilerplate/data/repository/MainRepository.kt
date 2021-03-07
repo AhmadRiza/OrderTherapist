@@ -51,6 +51,9 @@ class MainRepository @Inject constructor(
         remote.getProducts()
     })
 
+    fun checkOut(request: ProductCheckoutRequest) = performOperation({
+        remote.checkOut(request)
+    })
 
     fun getOrder(id: String): LiveData<Resource<OrderDetail>> = liveData(Dispatchers.IO) {
 

@@ -273,6 +273,12 @@
                     android:drawablePadding="@dimen/_6sdp"
                     android:drawableStart="@drawable/ic_clock" />
 
+                <androidx.constraintlayout.widget.Group
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:constraint_referenced_ids="et_name, label_name, et_phone, label_phone, label_date, tv_date, tv_time, label_time" />
+
 
                 <TextView
                     android:id="@+id/label_address"
@@ -302,6 +308,7 @@
 
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_location"
                     style="@style/MText.Normal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

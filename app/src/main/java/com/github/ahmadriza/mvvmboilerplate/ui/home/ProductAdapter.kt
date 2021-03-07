@@ -8,6 +8,7 @@ import com.github.ahmadriza.mvvmboilerplate.models.Product
 import com.github.ahmadriza.mvvmboilerplate.utils.common.DataBoundListAdapter
 import com.github.ahmadriza.mvvmboilerplate.utils.formatCurrency
 import com.github.ahmadriza.mvvmboilerplate.utils.getBindingOf
+import com.github.ahmadriza.mvvmboilerplate.utils.loadImage
 
 class ProductAdapter(private val listener: Listener? = null) :
     DataBoundListAdapter<Product, ItemProductBinding>(
@@ -32,6 +33,7 @@ class ProductAdapter(private val listener: Listener? = null) :
         binding.tvDesc.text = item.description
         binding.tvPrice.text = "${item.price.formatCurrency()}/${item.duration} menit"
         binding.btnOrder.setOnClickListener { listener?.onProductOrder(item) }
+        binding.imgProduct.loadImage(item.thumbnail)
     }
 
 

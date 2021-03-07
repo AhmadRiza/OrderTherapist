@@ -6,6 +6,7 @@ import com.github.ahmadriza.mvvmboilerplate.databinding.FragmentProfileBinding
 import com.github.ahmadriza.mvvmboilerplate.ui.main.MainActivity
 import com.github.ahmadriza.mvvmboilerplate.utils.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
+import org.jetbrains.anko.clearTask
 import org.jetbrains.anko.clearTop
 import org.jetbrains.anko.intentFor
 
@@ -17,12 +18,12 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
     override fun getLayoutResource(): Int = R.layout.fragment_profile
 
     override fun initViews() {
-        binding.btnLogOut.setOnClickListener { }
+        binding.btnLogOut.setOnClickListener { vm.logOut() }
     }
 
     override fun initObservers() {
         vm.isLoggedOut.observe(viewLifecycleOwner) {
-            startActivity(context?.intentFor<MainActivity>()?.clearTop()?.clearTop())
+            startActivity(context?.intentFor<MainActivity>()?.clearTop()?.clearTask())
         }
     }
 

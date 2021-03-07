@@ -23,11 +23,11 @@ class SharedPreferenceHelper @Inject constructor(
     }
 
     fun getUser(): User? = try {
-        gson.fromJson("user", User::class.java)
+        gson.fromJson(sharedPreferences.getString("user", ""), User::class.java)
     } catch (e: JsonSyntaxException) {
         null
     }
 
-    fun logOut() = sharedPreferences.edit().clear()
+    fun logOut() = sharedPreferences.edit().clear().apply()
 
 }
