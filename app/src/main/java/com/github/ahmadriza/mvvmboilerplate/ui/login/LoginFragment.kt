@@ -3,6 +3,7 @@ package com.github.ahmadriza.mvvmboilerplate.ui.login
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.github.ahmadriza.mvvmboilerplate.R
+import com.github.ahmadriza.mvvmboilerplate.data.local.LocalDataSource
 import com.github.ahmadriza.mvvmboilerplate.databinding.FragmentLoginBinding
 import com.github.ahmadriza.mvvmboilerplate.ui.main.MainActivity
 import com.github.ahmadriza.mvvmboilerplate.utils.base.BaseFragment
@@ -16,12 +17,16 @@ import org.jetbrains.anko.clearTask
 import org.jetbrains.anko.clearTop
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.toast
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
     private val vm: LoginVM by viewModels()
+
+    @Inject
+    lateinit var localDataSource: LocalDataSource
 
     override fun getLayoutResource(): Int = R.layout.fragment_login
 
@@ -32,9 +37,13 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         }
 
         binding.btnSignIn.setOnClickListener {
-            vm.login(
-                email = binding.etEmail.text?.toString() ?: "",
-                password = binding.etEmail.text?.toString() ?: ""
+//            vm.login(
+//                email = binding.etEmail.text?.toString() ?: "",
+//                password = binding.etEmail.text?.toString() ?: ""
+//            )
+            localDataSource.saveToken("token")
+            startActivity(
+                context?.intentFor<MainActivity>()?.clearTop()?.clearTask()
             )
         }
 

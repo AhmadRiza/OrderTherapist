@@ -42,10 +42,9 @@ class MainRepository @Inject constructor(
         }
     }
 
-    fun getProducts(): LiveData<Resource<List<Product>>> = liveData(Dispatchers.IO) {
-
-
-    }
+    fun getProducts() = performOperation({
+        remote.getProducts()
+    })
 
 
     fun getOrder(id: String): LiveData<Resource<OrderDetail>> = liveData(Dispatchers.IO) {

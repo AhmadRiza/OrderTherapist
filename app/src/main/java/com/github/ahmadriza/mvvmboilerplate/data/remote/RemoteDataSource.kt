@@ -10,4 +10,5 @@ class RemoteDataSource @Inject constructor(
 
     suspend fun login(request: LoginRequest) = getResult { service.login(request) }
     suspend fun register(request: RegisterRequest) = getResult { service.register(request) }
+    suspend fun getProducts() = getResult { service.getAllServices() }
 }

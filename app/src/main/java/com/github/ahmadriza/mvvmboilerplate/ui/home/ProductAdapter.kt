@@ -22,6 +22,7 @@ class ProductAdapter(private val listener: Listener? = null) :
 
         }
     ) {
+
     override fun createBinding(parent: ViewGroup): ItemProductBinding {
         return parent.getBindingOf(R.layout.item_product)
     }
@@ -29,7 +30,7 @@ class ProductAdapter(private val listener: Listener? = null) :
     override fun bind(binding: ItemProductBinding, item: Product) {
         binding.tvName.text = item.name
         binding.tvDesc.text = item.description
-        binding.tvPrice.text = "${item.price.formatCurrency()}/${item.duration}"
+        binding.tvPrice.text = "${item.price.formatCurrency()}/${item.duration} menit"
         binding.btnOrder.setOnClickListener { listener?.onProductOrder(item) }
     }
 

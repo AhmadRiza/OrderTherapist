@@ -12,17 +12,17 @@ interface MainService {
     @POST("api/customer/register")
     suspend fun register(@Body request: RegisterRequest): Response<BaseResponse<User>>
 
-    @POST("/api/customer/logout")
+    @POST("api/customer/logout")
     fun logout(): Response<BaseResponse<Any>>
 
-    @POST("/api/customer/forgot-password")
-    fun forgotPassword(request: ForgotPasswordRequest): Response<BaseResponse<Any>>
+    @POST("api/customer/forgot-password")
+    fun forgotPassword(@Body request: ForgotPasswordRequest): Response<BaseResponse<Any>>
 
-    @GET("/api/customer/service")
-    fun getAllServices(): Response<BaseResponse<List<Product>>>
+    @GET("api/customer/service")
+    suspend fun getAllServices(): Response<BaseResponse<List<Product>>>
 
     @POST("/api/customer/checkout")
-    fun checkOut(request: ProductCheckoutRequest): Response<BaseResponse<Order>>
+    fun checkOut(@Body request: ProductCheckoutRequest): Response<BaseResponse<Order>>
 
     @GET("/api/customer/my-order")
     fun getAllOrder(): Response<BaseResponse<List<Order>>>
@@ -34,10 +34,10 @@ interface MainService {
     fun getDetailOrder(@Path("id") id: String): Response<BaseResponse<OrderDetail>>
 
     @POST("/api/customer/feedback")
-    fun orderFeedback(request: OrderFeedbackRequest): Response<BaseResponse<Any>>
+    fun orderFeedback(@Body request: OrderFeedbackRequest): Response<BaseResponse<Any>>
 
     @GET("api/customer/invoice")
-    fun createTopUp(request: TopUpRequest): Response<BaseResponse<Invoice>>
+    fun createTopUp(@Body request: TopUpRequest): Response<BaseResponse<Invoice>>
 
     @GET("api/customer/invoice")
     fun getProfile(): Response<BaseResponse<List<Invoice>>>
@@ -46,7 +46,7 @@ interface MainService {
     fun getActiveTopUp(): Response<BaseResponse<User>>
 
     @PUT("/api/customer/profile")
-    fun editProfile(request: RegisterRequest): Response<BaseResponse<User>>
+    fun editProfile(@Body request: RegisterRequest): Response<BaseResponse<User>>
 
 
 }

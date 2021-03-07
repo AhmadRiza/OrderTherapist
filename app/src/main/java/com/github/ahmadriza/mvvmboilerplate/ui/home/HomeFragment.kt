@@ -13,6 +13,7 @@ import com.github.ahmadriza.mvvmboilerplate.utils.formatCurrency
 import com.github.ahmadriza.mvvmboilerplate.utils.gone
 import com.github.ahmadriza.mvvmboilerplate.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
+import org.jetbrains.anko.toast
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(), ProductAdapter.Listener {
@@ -30,14 +31,21 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), ProductAdapter.Listene
 
     override fun initObservers() {
         vm.products.observe(viewLifecycleOwner) {
-            it.data?.let {
-                adapter.submitList(it)
-                binding.groupContent.visible()
-            }
-            if (it.status == Resource.Status.LOADING) {
-                binding.loading.visible()
-            } else {
-                binding.loading.gone()
+            when (it.status) {
+                Resource.Status.LOADING -> {
+                    binding.loading.visible()
+                }
+                else -> {
+                    binding.loading.gone()
+
+                    if (it.status == Resource.Status.SUCCESS) {
+                        adapter.submitList(it.data!!.data)
+                        binding.groupContent.visible()
+                    } else {
+                        context?.toast(it.message.toString())
+                    }
+
+                }
             }
         }
 
