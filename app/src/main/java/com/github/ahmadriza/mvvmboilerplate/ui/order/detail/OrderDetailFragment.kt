@@ -23,9 +23,11 @@ class OrderDetailFragment : BaseFragment<FragmentOrderDetailBinding>() {
     override fun initViews() {
         binding.btnRating.setOnClickListener {
             val therapist = vm.order.value?.data?.data?.therapist ?: return@setOnClickListener
+            val id = vm.order.value?.data?.data?.id ?: return@setOnClickListener
             findNavController().navigate(
                 R.id.action_orderDetailFragment_to_rateOrderFragment, bundleOf(
-                    Pair(RateOrderFragment.EXTRA_THERAPIST, therapist)
+                    Pair(RateOrderFragment.EXTRA_THERAPIST, therapist),
+                    Pair(RateOrderFragment.EXTRA_ID, id)
                 )
             )
         }

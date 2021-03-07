@@ -1,6 +1,7 @@
 package com.github.ahmadriza.mvvmboilerplate.data.remote
 
 import com.github.ahmadriza.mvvmboilerplate.models.LoginRequest
+import com.github.ahmadriza.mvvmboilerplate.models.OrderFeedbackRequest
 import com.github.ahmadriza.mvvmboilerplate.models.ProductCheckoutRequest
 import com.github.ahmadriza.mvvmboilerplate.models.RegisterRequest
 import javax.inject.Inject
@@ -14,5 +15,10 @@ class RemoteDataSource @Inject constructor(
     suspend fun getProducts() = getResult { service.getAllServices() }
     suspend fun checkOut(request: ProductCheckoutRequest) = getResult { service.checkOut(request) }
     suspend fun getOrderDetail(id: String) = getResult { service.getDetailOrder(id) }
+    suspend fun orderFeedback(request: OrderFeedbackRequest) =
+        getResult { service.orderFeedback(request) }
+
+    suspend fun getAllOrder() = getResult { service.getAllOrder() }
+    suspend fun getActiveOrder() = getResult { service.getActiveAllOrder() }
 
 }

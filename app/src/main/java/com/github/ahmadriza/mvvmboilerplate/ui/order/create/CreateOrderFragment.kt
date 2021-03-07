@@ -91,6 +91,7 @@ class CreateOrderFragment : BaseFragment<FragmentOrderBinding>() {
             binding.tvProductPrice.text = it.price.formatCurrency()
             binding.tvTotalPrice.text = it.price.formatCurrency()
             binding.imgProduct.loadRoundImage(it.thumbnail)
+            binding.tvDuration.text = "/${it.duration} menit"
         }
     }
 

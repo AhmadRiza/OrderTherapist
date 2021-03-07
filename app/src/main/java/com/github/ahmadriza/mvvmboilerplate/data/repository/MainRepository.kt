@@ -59,8 +59,15 @@ class MainRepository @Inject constructor(
         remote.getOrderDetail(id)
     })
 
-    fun getOrderHistory(): LiveData<Resource<List<Order>>> = liveData(Dispatchers.IO) {
+    fun orderFeedback(feedbackRequest: OrderFeedbackRequest) = performOperation({
+        remote.orderFeedback(feedbackRequest)
+    })
 
-    }
+    fun getAllOrder() = performOperation({
+        remote.getAllOrder()
+    })
 
+    fun getActiveOrder() = performOperation({
+        remote.getActiveOrder()
+    })
 }

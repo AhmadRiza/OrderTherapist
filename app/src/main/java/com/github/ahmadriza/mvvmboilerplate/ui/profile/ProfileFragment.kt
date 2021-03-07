@@ -11,6 +11,7 @@ import com.github.ahmadriza.mvvmboilerplate.utils.base.BaseFragment
 import com.github.ahmadriza.mvvmboilerplate.utils.formatCurrency
 import com.github.ahmadriza.mvvmboilerplate.utils.loadRoundImage
 import dagger.hilt.android.AndroidEntryPoint
+import org.jetbrains.anko.alert
 import org.jetbrains.anko.clearTask
 import org.jetbrains.anko.clearTop
 import org.jetbrains.anko.intentFor
@@ -25,7 +26,19 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
 
     override fun initViews() {
         binding.rvSetting.adapter = menuAdapter
-        binding.btnLogOut.setOnClickListener { vm.logOut() }
+
+        binding.btnLogOut.setOnClickListener {
+            context?.alert {
+                message = "Anda yakin ingin keluar?"
+                positiveButton("Keluar") {
+                    vm.logOut()
+                }
+                negativeButton("Batal") {
+                    it.dismiss()
+                }
+            }?.show()
+
+        }
     }
 
     override fun initObservers() {

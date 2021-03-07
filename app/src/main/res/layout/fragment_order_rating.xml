@@ -102,12 +102,13 @@
 
 
                 <androidx.appcompat.widget.AppCompatRatingBar
-                    android:id="@+id/appCompatRatingBar"
+                    android:id="@+id/rating_bar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/standardMargin"
                     android:numStars="5"
                     android:rating="4"
+                    android:max="5"
                     android:scaleX=".85"
                     android:scaleY=".85"
                     android:theme="@style/MRatingBar"
@@ -117,7 +118,7 @@
 
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/appCompatEditText"
+                    android:id="@+id/et_comment"
                     style="@style/MText.Normal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -128,18 +129,31 @@
                     android:hint="Beri komentar (Opsional)..."
                     android:minLines="5"
                     android:padding="@dimen/standardMargin"
-                    app:layout_constraintTop_toBottomOf="@+id/appCompatRatingBar"
+                    app:layout_constraintTop_toBottomOf="@+id/rating_bar"
                     tools:layout_editor_absoluteX="16dp" />
 
                 <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_send"
                     style="@style/MButton.Medium"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="KIRIM PENILAIAN"
                     android:layout_marginTop="@dimen/_32sdp"
-                    app:layout_constraintEnd_toEndOf="@+id/appCompatEditText"
-                    app:layout_constraintStart_toStartOf="@+id/appCompatEditText"
-                    app:layout_constraintTop_toBottomOf="@+id/appCompatEditText" />
+                    app:layout_constraintEnd_toEndOf="@+id/et_comment"
+                    app:layout_constraintStart_toStartOf="@+id/et_comment"
+                    app:layout_constraintTop_toBottomOf="@+id/et_comment" />
+
+                <ProgressBar
+                    android:visibility="gone"
+                    android:id="@+id/loading"
+                    android:elevation="@dimen/_10sdp"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:indeterminateTint="@color/customPrimary"
+                    app:layout_constraintTop_toTopOf="@id/btn_send"
+                    app:layout_constraintBottom_toBottomOf="@id/btn_send"
+                    app:layout_constraintStart_toStartOf="@id/btn_send"
+                    android:layout_marginStart="@dimen/parentPadding" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

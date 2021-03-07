@@ -124,6 +124,17 @@
                     app:layout_constraintTop_toBottomOf="@id/tv_product_name"
                     tools:text="Rp100.000" />
 
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_duration"
+                    style="@style/MText.Normal.Secondary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textSize="@dimen/textRegular"
+                    app:layout_constraintStart_toEndOf="@id/tv_product_price"
+                    app:layout_constraintTop_toBottomOf="@id/tv_product_name"
+                    tools:text="/10 Menit" />
+
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_product_description"

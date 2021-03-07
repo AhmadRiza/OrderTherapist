@@ -28,12 +28,12 @@ class OrderListFragment : BaseFragment<FragmentOrderListBinding>() {
 
     override fun initViews() {
         binding.rvOrders.adapter = adapter
-        binding.swipe.setOnRefreshListener { binding.swipe.isRefreshing = false }
+        binding.swipe.setOnRefreshListener { vm.loadOrder(isActive) }
     }
 
     override fun initObservers() {
         vm.orders.observe(viewLifecycleOwner) {
-            adapter.submitList(it.data)
+            adapter.submitList(it.data?.data)
 
             binding.swipe.isRefreshing = it.status == Resource.Status.LOADING
 
@@ -41,7 +41,7 @@ class OrderListFragment : BaseFragment<FragmentOrderListBinding>() {
     }
 
     override fun initData() {
-
+        vm.loadOrder(isActive)
     }
 
 }
