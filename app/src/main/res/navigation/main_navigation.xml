@@ -64,5 +64,14 @@
         tools:layout="@layout/fragment_profile"
         android:id="@+id/navigation_profile"
         android:name="com.github.ahmadriza.mvvmboilerplate.ui.profile.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:label="ProfileFragment">
+        <action
+            android:id="@+id/action_navigation_profile_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_register"
+        android:id="@+id/editProfileFragment"
+        android:name="com.github.ahmadriza.mvvmboilerplate.ui.register.RegisterFragment"
+        android:label="RegisterFragment" />
 </navigation>

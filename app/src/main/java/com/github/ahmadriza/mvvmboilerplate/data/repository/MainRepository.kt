@@ -55,10 +55,9 @@ class MainRepository @Inject constructor(
         remote.checkOut(request)
     })
 
-    fun getOrder(id: String): LiveData<Resource<OrderDetail>> = liveData(Dispatchers.IO) {
-
-
-    }
+    fun getOrder(id: String) = performOperation({
+        remote.getOrderDetail(id)
+    })
 
     fun getOrderHistory(): LiveData<Resource<List<Order>>> = liveData(Dispatchers.IO) {
 

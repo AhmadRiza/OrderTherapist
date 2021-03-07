@@ -31,7 +31,6 @@ class MenuAdapter : DataBoundListAdapter<MenuItem, ItemMenuBinding>(
 
     override fun bind(binding: ItemMenuBinding, item: MenuItem) {
 
-        binding.imgIcon.setImageResource(item.icon)
         binding.tvTitle.text = item.title
 
         binding.root.setOnClickListener {

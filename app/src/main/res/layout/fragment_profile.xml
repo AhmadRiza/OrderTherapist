@@ -77,7 +77,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            tools:text="Saldo Anda"
+                            android:text="Saldo Anda"
                             style="@style/MText.Normal.Secondary" />
 
                         <androidx.appcompat.widget.AppCompatTextView
