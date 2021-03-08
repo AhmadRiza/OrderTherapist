@@ -2,7 +2,6 @@ package com.github.ahmadriza.mvvmboilerplate.utils.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
-import androidx.lifecycle.map
 import com.github.ahmadriza.mvvmboilerplate.utils.android.RefreshableLiveData
 import com.github.ahmadriza.mvvmboilerplate.utils.data.Resource.Status.ERROR
 import com.github.ahmadriza.mvvmboilerplate.utils.data.Resource.Status.SUCCESS
@@ -13,22 +12,22 @@ import kotlinx.coroutines.Dispatchers
 * */
 
 fun <T, A> performLazyGetOperation(
-    cacheOperation: () -> LiveData<T>,
+    cacheOperation: () -> T,
     networkCall: suspend () -> Resource<A>,
     saveCallResult: suspend (A) -> Unit
 ): LiveData<Resource<T>> =
     liveData(Dispatchers.IO) {
         emit(Resource.loading())
-        val source = cacheOperation.invoke().map { Resource.success(it) }
-        emitSource(source)
+        val source = Resource.success(cacheOperation())
+        emit(source)
 
         val responseStatus = networkCall.invoke()
         if (responseStatus.status == SUCCESS) {
             saveCallResult(responseStatus.data!!)
-
+            emit(source)
         } else if (responseStatus.status == ERROR) {
             emit(Resource.error(responseStatus.message!!))
-            emitSource(source)
+            emit(source)
         }
     }
 

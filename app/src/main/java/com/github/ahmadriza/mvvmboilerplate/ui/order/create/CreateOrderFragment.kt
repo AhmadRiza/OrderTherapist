@@ -53,7 +53,7 @@ class CreateOrderFragment : BaseFragment<FragmentOrderBinding>() {
 
     override fun initObservers() {
         vm.user.observe(viewLifecycleOwner) {
-            binding.etAddress.setText(it.address)
+            binding.etAddress.setText(it.data?.address)
         }
         vm.response.observe(viewLifecycleOwner) {
 

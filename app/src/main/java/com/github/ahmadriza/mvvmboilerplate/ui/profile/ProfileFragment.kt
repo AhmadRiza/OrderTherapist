@@ -49,13 +49,16 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
             startActivity(context?.intentFor<MainActivity>()?.clearTop()?.clearTask())
         }
         vm.user.observe(viewLifecycleOwner) {
-            binding.tvName.text = it.name
-            binding.tvEmail.text = it.email
-            binding.tvBalance.text = it.balance.formatCurrency()
-            binding.imgProfile.apply {
-                if (it.gender == "laki-laki") loadRoundImage(R.drawable.men)
-                else loadRoundImage(R.drawable.women)
+            it.data?.let {
+                binding.tvName.text = it.name
+                binding.tvEmail.text = it.email
+                binding.tvBalance.text = it.balance.formatCurrency()
+                binding.imgProfile.apply {
+                    if (it.gender == "laki-laki") loadRoundImage(R.drawable.men)
+                    else loadRoundImage(R.drawable.women)
+                }
             }
+
         }
     }
 

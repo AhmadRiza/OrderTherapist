@@ -56,7 +56,7 @@ class TopUpFragment : BaseFragment<FragmentTopUpBinding>(), InvoiceAdapter.Liste
                     )
                 )
             }
-            else adapter.currentList.clear()
+            else adapter.submitList(emptyList())
         }
     }
 

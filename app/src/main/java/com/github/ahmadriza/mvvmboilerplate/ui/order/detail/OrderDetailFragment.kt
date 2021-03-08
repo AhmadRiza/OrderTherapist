@@ -75,9 +75,12 @@ class OrderDetailFragment : BaseFragment<FragmentOrderDetailBinding>() {
         }
 
         vm.user.observe(viewLifecycleOwner) {
-            binding.tvName.text = it.name
-            binding.tvAddress.text = it.address
-            binding.tvPhone.text = it.phone
+            it.data?.let {
+                binding.tvName.text = it.name
+                binding.tvAddress.text = it.address
+                binding.tvPhone.text = it.phone
+            }
+
         }
     }
 

@@ -69,7 +69,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         }
 
         vm.user.observe(viewLifecycleOwner) {
-            it?.email?.let {
+            it?.data?.email?.let {
                 binding.etEmail.setText(it)
             }
         }

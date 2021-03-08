@@ -52,9 +52,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), ProductAdapter.Listene
         }
 
         vm.user.observe(viewLifecycleOwner) {
-            binding.tvName.text = it.name
-            binding.tvAddress.text = it.address
-            binding.tvBalance.text = it.balance.formatCurrency()
+            it.data?.let {
+                binding.tvName.text = it.name
+                binding.tvAddress.text = it.address
+                binding.tvBalance.text = it.balance.formatCurrency()
+            }
+
         }
     }
 
@@ -69,4 +72,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), ProductAdapter.Listene
         )
     }
 
+    override fun onResume() {
+        super.onResume()
+        vm.refreshUser()
+    }
 }
