@@ -7,6 +7,7 @@ import com.github.ahmadriza.mvvmboilerplate.data.remote.RemoteDataSource
 import com.github.ahmadriza.mvvmboilerplate.models.*
 import com.github.ahmadriza.mvvmboilerplate.utils.data.Resource
 import com.github.ahmadriza.mvvmboilerplate.utils.data.performOperation
+import com.github.ahmadriza.mvvmboilerplate.utils.data.refreshLiveData
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
 
@@ -74,4 +75,11 @@ class MainRepository @Inject constructor(
     fun getActiveOrder() = performOperation({
         remote.getActiveOrder()
     })
+
+    fun createTopUp(request: TopUpRequest) = performOperation({
+        remote.topUp(request)
+    })
+
+    fun topUpHistory() = refreshLiveData { remote.topUpHistory() }
+
 }

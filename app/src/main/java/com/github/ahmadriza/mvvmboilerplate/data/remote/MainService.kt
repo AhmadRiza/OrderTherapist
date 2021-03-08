@@ -36,14 +36,14 @@ interface MainService {
     @POST("api/customer/feedback")
     suspend fun orderFeedback(@Body request: OrderFeedbackRequest): Response<BaseResponse<Any>>
 
-    @GET("api/customer/invoice")
+    @POST("api/customer/invoice")
     suspend fun createTopUp(@Body request: TopUpRequest): Response<BaseResponse<Invoice>>
 
     @GET("api/customer/invoice")
-    suspend fun getProfile(): Response<BaseResponse<List<Invoice>>>
+    suspend fun getActiveTopUp(): Response<BaseResponse<Invoice>>
 
     @GET("api/customer/profile")
-    suspend fun getActiveTopUp(): Response<BaseResponse<User>>
+    suspend fun getProfile(): Response<BaseResponse<User>>
 
     @PUT("api/customer/profile")
     suspend fun editProfile(@Body request: RegisterRequest): Response<BaseResponse<User>>

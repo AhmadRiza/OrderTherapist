@@ -16,6 +16,9 @@
             app:enterAnim="@anim/fragment_open_enter"
             app:launchSingleTop="false"
             app:popExitAnim="@anim/fragment_open_exit" />
+        <action
+            android:id="@+id/action_navigation_home_to_topUpFragment"
+            app:destination="@id/topUpFragment" />
     </fragment>
     <fragment
         android:id="@+id/createOrderFragment"
@@ -68,10 +71,18 @@
         <action
             android:id="@+id/action_navigation_profile_to_editProfileFragment"
             app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_navigation_profile_to_topUpFragment"
+            app:destination="@id/topUpFragment" />
     </fragment>
     <fragment
         tools:layout="@layout/fragment_register"
         android:id="@+id/editProfileFragment"
         android:name="com.github.ahmadriza.mvvmboilerplate.ui.register.RegisterFragment"
         android:label="RegisterFragment" />
+    <fragment
+        android:id="@+id/topUpFragment"
+        tools:layout="@layout/fragment_top_up"
+        android:name="com.github.ahmadriza.mvvmboilerplate.ui.topup.TopUpFragment"
+        android:label="TopUpFragment" />
 </navigation>

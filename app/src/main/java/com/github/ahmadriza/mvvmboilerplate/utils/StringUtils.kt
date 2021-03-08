@@ -1,5 +1,6 @@
 package com.github.ahmadriza.mvvmboilerplate.utils
 
+import okhttp3.internal.toLongOrDefault
 import java.text.NumberFormat
 import java.util.*
 
@@ -14,3 +15,8 @@ fun String.formatCurrency(): String {
 
     return formatRupiah.format(this.toDoubleOrNull() ?: 0.0)
 }
+
+
+fun String.clearCurrency() = replace("Rp.", "").replace(".", "").toLongOrDefault(0)
+
+const val DOT = "•"

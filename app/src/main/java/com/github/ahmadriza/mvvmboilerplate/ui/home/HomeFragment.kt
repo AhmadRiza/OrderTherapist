@@ -26,7 +26,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), ProductAdapter.Listene
     override fun initViews() {
 
         binding.rvProducts.adapter = adapter
-
+        binding.tvBalance.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_home_to_topUpFragment)
+        }
     }
 
     override fun initObservers() {

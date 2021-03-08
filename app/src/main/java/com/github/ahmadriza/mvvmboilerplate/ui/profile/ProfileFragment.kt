@@ -39,6 +39,9 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
             }?.show()
 
         }
+        binding.btnTopUp.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_profile_to_topUpFragment)
+        }
     }
 
     override fun initObservers() {

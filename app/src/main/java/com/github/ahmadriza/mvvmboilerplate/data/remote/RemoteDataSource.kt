@@ -13,6 +13,7 @@ class RemoteDataSource @Inject constructor(
         getResult { service.forgotPassword(request) }
 
     suspend fun getProducts() = getResult { service.getAllServices() }
+
     suspend fun checkOut(request: ProductCheckoutRequest) = getResult { service.checkOut(request) }
     suspend fun getOrderDetail(id: String) = getResult { service.getDetailOrder(id) }
     suspend fun orderFeedback(request: OrderFeedbackRequest) =
@@ -20,5 +21,8 @@ class RemoteDataSource @Inject constructor(
 
     suspend fun getAllOrder() = getResult { service.getAllOrder() }
     suspend fun getActiveOrder() = getResult { service.getActiveAllOrder() }
+
+    suspend fun topUp(topUpRequest: TopUpRequest) = getResult { service.createTopUp(topUpRequest) }
+    suspend fun topUpHistory() = getResult { service.getActiveTopUp() }
 
 }
