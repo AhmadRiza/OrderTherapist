@@ -42,6 +42,10 @@ fun View.invisible() {
     visibility = View.INVISIBLE
 }
 
+fun View.visibleOrGone(isVisible: Boolean) {
+    if (isVisible) visible() else gone()
+}
+
 fun String.isAnValidEmail(): Boolean {
     return if (isNullOrBlank()) {
         false

@@ -38,6 +38,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             )
         }
 
+        binding.btnForgotPassword.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_forgotPasswordFragment)
+        }
+
     }
 
     override fun initObservers() {

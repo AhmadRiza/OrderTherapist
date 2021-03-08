@@ -36,6 +36,10 @@ class MainRepository @Inject constructor(
         local.saveUser(it.data)
     }
 
+    fun forgotPassword(request: ForgotPasswordRequest) = performOperation({
+        remote.forgotPassword(request)
+    })
+
     fun getUser() = liveData(Dispatchers.IO) {
         local.getUser()?.let {
             emit(it)

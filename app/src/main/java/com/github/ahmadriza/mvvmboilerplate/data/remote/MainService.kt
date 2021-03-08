@@ -24,16 +24,16 @@ interface MainService {
     @POST("api/customer/checkout")
     suspend fun checkOut(@Body request: ProductCheckoutRequest): Response<BaseResponse<Order>>
 
-    @GET("/api/customer/my-order")
+    @GET("api/customer/my-order")
     suspend fun getAllOrder(): Response<BaseResponse<List<Order>>>
 
-    @GET("/api/customer/my-active-order")
+    @GET("api/customer/my-active-order")
     suspend fun getActiveAllOrder(): Response<BaseResponse<List<Order>>>
 
-    @GET("/api/customer/my-order/{id}")
+    @GET("api/customer/my-order/{id}")
     suspend fun getDetailOrder(@Path("id") id: String): Response<BaseResponse<OrderDetail>>
 
-    @POST("/api/customer/feedback")
+    @POST("api/customer/feedback")
     suspend fun orderFeedback(@Body request: OrderFeedbackRequest): Response<BaseResponse<Any>>
 
     @GET("api/customer/invoice")
@@ -42,10 +42,10 @@ interface MainService {
     @GET("api/customer/invoice")
     suspend fun getProfile(): Response<BaseResponse<List<Invoice>>>
 
-    @GET("/api/customer/profile")
+    @GET("api/customer/profile")
     suspend fun getActiveTopUp(): Response<BaseResponse<User>>
 
-    @PUT("/api/customer/profile")
+    @PUT("api/customer/profile")
     suspend fun editProfile(@Body request: RegisterRequest): Response<BaseResponse<User>>
 
 
