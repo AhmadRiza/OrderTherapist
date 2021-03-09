@@ -119,6 +119,20 @@
                 app:layout_constraintStart_toStartOf="@+id/et_password"
                 app:layout_constraintTop_toBottomOf="@+id/btn_forgot_password" />
 
+
+            <ProgressBar
+                android:id="@+id/loading"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_marginEnd="@dimen/standardMargin"
+                android:indeterminateTint="@color/customPrimary"
+                android:visibility="gone"
+                android:layout_marginStart="@dimen/parentPadding"
+                app:layout_constraintBottom_toBottomOf="@id/btn_sign_in"
+                app:layout_constraintStart_toStartOf="@+id/btn_sign_in"
+                app:layout_constraintTop_toTopOf="@id/btn_sign_in" />
+
+
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/btn_forgot_password"
                 style="@style/MText.Subtitle"

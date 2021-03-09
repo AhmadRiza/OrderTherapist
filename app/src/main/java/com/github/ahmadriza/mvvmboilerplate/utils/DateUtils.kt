@@ -1,5 +1,7 @@
 package com.github.ahmadriza.mvvmboilerplate.utils
 
+import android.content.Context
+import com.github.ahmadriza.mvvmboilerplate.R
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -7,7 +9,6 @@ import java.util.*
 /**
  * Created on 12/3/20.
  */
-
 
 fun countWeekPassedFromDate(date: Date): Int {
 
@@ -22,9 +23,10 @@ fun countWeekPassedFromDate(date: Date): Int {
     return (diff / weekInMs).toInt()
 }
 
+fun String.displayDate(context: Context) = toDateOrNull()?.display(context) ?: "Invalid Date"
 
 fun String.toDateOrNull(
-    format: String = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+    format: String = "yyyy-MM-dd HH:mm:ss",
     isUtc: Boolean = true
 ): Date? {
     val sdf = SimpleDateFormat(format, Locale.getDefault())
@@ -40,4 +42,24 @@ fun String.toDateOrNull(
 fun Date.toTimeStamp(): String {
     val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
     return sdf.format(this)
+}
+
+fun Int.printDoubleDigits() = String.format("%02d", this)
+
+fun Date.display(context: Context): String {
+
+    val monthsList: Array<String> = context.resources.getStringArray(R.array.bulan)
+//    val arrHari: Array<String> = context.resources.getStringArray(R.array.hari)
+
+    val cal = Calendar.getInstance().apply { time = this@display }
+
+//    val day = arrHari[cal.get(Calendar.DAY_OF_WEEK) - 1]
+    val date = cal.get(Calendar.DATE)
+    val month = monthsList[cal.get(Calendar.MONTH)]
+    val year = cal.get(Calendar.YEAR)
+    val hour = cal.get(Calendar.HOUR_OF_DAY).printDoubleDigits()
+    val minute = cal.get(Calendar.MINUTE).printDoubleDigits()
+
+    return "$date $month $year, $hour:$minute"
+
 }

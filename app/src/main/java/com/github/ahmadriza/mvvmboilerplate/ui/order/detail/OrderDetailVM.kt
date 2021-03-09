@@ -12,11 +12,18 @@ class OrderDetailVM @ViewModelInject constructor(
 
     private val _orderId = MutableLiveData<String>()
 
+    val user = repository.getUser()
+
     val order = Transformations.switchMap(_orderId) {
         repository.getOrder(it)
     }
 
     fun loadOrder(id: String) {
+        _orderId.value = id
+    }
+
+    fun refresh() {
+        val id = _orderId.value
         _orderId.value = id
     }
 

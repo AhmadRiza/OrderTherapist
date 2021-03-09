@@ -29,7 +29,7 @@ data class OrderDetail(
     @SerializedName("service") val product: Product,
     @SerializedName("terapis_status") val info: String,
     val feedback: OrderFeedback?,
-    @SerializedName("terapis") val therapist: Therapist
+    @SerializedName("terapis") val therapist: Therapist?
 
 )
 

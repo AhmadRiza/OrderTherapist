@@ -13,6 +13,7 @@ import androidx.annotation.ColorRes
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.ContextCompat
+import com.github.ahmadriza.mvvmboilerplate.utils.android.CurrencyTextWatcher
 import com.github.ahmadriza.mvvmboilerplate.utils.android.DelayTextWatcher
 import org.jetbrains.anko.runOnUiThread
 
@@ -40,6 +41,10 @@ fun View.gone() {
 
 fun View.invisible() {
     visibility = View.INVISIBLE
+}
+
+fun View.visibleOrGone(isVisible: Boolean) {
+    if (isVisible) visible() else gone()
 }
 
 fun String.isAnValidEmail(): Boolean {
@@ -111,4 +116,8 @@ fun View.setMarginTop(marginTop: Int) {
     val menuLayoutParams = this.layoutParams as ViewGroup.MarginLayoutParams
     menuLayoutParams.setMargins(0, marginTop, 0, 0)
     this.layoutParams = menuLayoutParams
+}
+
+fun EditText.attachCurrencyFormatter() {
+    addTextChangedListener(CurrencyTextWatcher(this))
 }

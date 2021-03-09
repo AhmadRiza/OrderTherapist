@@ -66,20 +66,6 @@
                 android:clipToPadding="false"
                 android:paddingBottom="@dimen/_100sdp">
 
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_title"
-                    style="@style/MText.Title"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/parentPadding"
-                    android:visibility="gone"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Pesanan #161661711" />
-
-
                 <TextView
                     android:id="@+id/label_name"
                     style="@style/MText.Normal"
@@ -91,10 +77,23 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <TextView
+                    android:id="@+id/label_age"
+                    style="@style/MText.Normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/parentPadding"
+                    android:text="Umur"
+                    android:textSize="@dimen/textMini"
+                    app:layout_constraintStart_toEndOf="@id/et_name"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_name"
                     style="@style/MText.Normal"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:inputType="textPersonName"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/parentPadding"
                     android:layout_marginTop="@dimen/standardMargin"
@@ -103,10 +102,28 @@
                     android:paddingHorizontal="@dimen/_8sdp"
                     android:paddingVertical="@dimen/_6sdp"
                     android:paddingStart="@dimen/_50sdp"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/label_name" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_age"
+                    style="@style/MText.Normal"
+                    android:layout_width="0dp"
+                    android:inputType="number"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/parentPadding"
+                    android:layout_marginTop="@dimen/standardMargin"
+                    android:background="@drawable/shape_form"
+                    android:hint="XX Tahun"
+                    android:paddingHorizontal="@dimen/_8sdp"
+                    android:paddingVertical="@dimen/_6sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/label_age"
+                    app:layout_constraintTop_toBottomOf="@id/label_age" />
 
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_gender"
                     style="@style/MText.Subtitle"
                     android:layout_width="@dimen/_40sdp"
                     android:layout_height="0dp"
@@ -135,6 +152,7 @@
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_email"
                     style="@style/MText.Normal"
+                    android:inputType="textEmailAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/parentPadding"
@@ -160,6 +178,7 @@
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_phone"
                     style="@style/MText.Normal"
+                    android:inputType="phone|number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/parentPadding"
@@ -190,9 +209,9 @@
                     android:layout_marginHorizontal="@dimen/parentPadding"
                     android:layout_marginTop="@dimen/standardMargin"
                     android:background="@drawable/shape_form"
+                    android:gravity="start"
                     android:hint="Masukkan Alamat"
                     android:minLines="4"
-                    android:gravity="start"
                     android:paddingHorizontal="@dimen/_8sdp"
                     android:paddingVertical="@dimen/_4sdp"
                     app:layout_constraintTop_toBottomOf="@+id/label_address"
@@ -202,6 +221,7 @@
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_pass1"
                     style="@style/MText.Normal"
+                    android:inputType="textPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/parentPadding"
@@ -228,6 +248,7 @@
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_pass2"
                     style="@style/MText.Normal"
+                    android:inputType="textPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/parentPadding"
@@ -251,6 +272,11 @@
                     app:layout_constraintStart_toStartOf="@+id/et_pass1"
                     app:layout_constraintTop_toBottomOf="@+id/et_pass1" />
 
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/group_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:constraint_referenced_ids="label_email,et_email,et_pass1,label_pass1,label_pass2, et_pass2" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -273,7 +299,7 @@
 
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_order"
+                android:id="@+id/btn_register"
                 style="@style/MButton.Medium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -287,12 +313,14 @@
                 android:id="@+id/loading"
                 android:layout_width="@dimen/_24sdp"
                 android:layout_height="@dimen/_24sdp"
-                android:layout_marginEnd="@dimen/standardMargin"
+                android:layout_marginStart="@dimen/standardMargin"
                 android:indeterminateTint="@color/customPrimary"
                 android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btn_order"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:elevation="@dimen/_10sdp"
+                android:outlineProvider="none"
+                app:layout_constraintStart_toStartOf="@id/btn_register"
+                app:layout_constraintTop_toTopOf="@id/btn_register"
+                app:layout_constraintBottom_toBottomOf="@id/btn_register" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

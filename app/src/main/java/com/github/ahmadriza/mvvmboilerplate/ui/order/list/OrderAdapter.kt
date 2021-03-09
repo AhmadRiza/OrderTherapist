@@ -31,7 +31,7 @@ class OrderAdapter(private val listener: Listener? = null) :
     override fun bind(binding: ItemOrderBinding, item: Order) {
         binding.tvProductName.text = item.product.name
         binding.tvPrice.text = item.product.price.formatCurrency()
-        binding.tvTherapistName.text = item.therapist?.name
+//        binding.tvTherapistName.text = item.therapist?.name
         binding.tvTherapistRate.gone()
         binding.imgTherapist.loadRoundImage(R.drawable.pp)
         binding.date.text = item.date

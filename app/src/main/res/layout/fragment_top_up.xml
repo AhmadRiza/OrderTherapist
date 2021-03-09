@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/view_root"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btn_back"
+                    android:background="@drawable/bg_white_ripple"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="@dimen/_12sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_back" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/title"
+                    style="@style/MText.Subtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center_vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/btn_back"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="Top Up Saldo" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/label1"
+                style="@style/MText.SubHeadline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/parentPadding"
+                android:text="TOP UP BARU"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/label_rp"
+                style="@style/MText.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rp"
+                android:layout_marginTop="@dimen/_6sdp"
+                app:layout_constraintStart_toStartOf="@id/label1"
+                app:layout_constraintTop_toBottomOf="@id/label1" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_nominal"
+                style="@style/MText.Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:background="@android:color/transparent"
+                android:hint="0"
+                android:maxLength="11"
+                android:inputType="number"
+                android:layout_marginEnd="@dimen/parentPadding"
+                app:layout_constraintEnd_toStartOf="@id/btn_top_up"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@id/label_rp"
+                app:layout_constraintTop_toTopOf="@id/label_rp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_top_up"
+                style="@style/MButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_add_bold"
+                android:drawablePadding="@dimen/_6sdp"
+                android:text="TOP UP"
+                app:layout_constraintEnd_toEndOf="@id/label1"
+                app:layout_constraintTop_toTopOf="@id/label_rp"
+                app:layout_constraintBottom_toBottomOf="@id/label_rp" />
+
+            <ProgressBar
+                android:id="@+id/loading"
+                android:visibility="gone"
+                android:layout_marginStart="@dimen/_9sdp"
+                android:elevation="@dimen/_10sdp"
+                android:outlineProvider="none"
+                app:layout_constraintTop_toTopOf="@id/btn_top_up"
+                app:layout_constraintBottom_toBottomOf="@id/btn_top_up"
+                app:layout_constraintStart_toStartOf="@id/btn_top_up"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:indeterminateTint="@color/customPrimary" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_height="@dimen/separatorH"
+                app:layout_constraintTop_toBottomOf="@id/label_rp"
+                app:layout_constraintStart_toStartOf="@id/label_rp"
+                app:layout_constraintEnd_toEndOf="@id/et_nominal"
+                android:background="@color/separator" />
+
+
+            <View
+                android:id="@+id/separator0"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/longMargin"
+                android:background="@color/background"
+                app:layout_constraintTop_toBottomOf="@id/et_nominal" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/separator"
+                app:layout_constraintTop_toTopOf="@id/separator0" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/header1"
+                android:layout_margin="@dimen/parentPadding"
+                app:layout_constraintTop_toBottomOf="@id/separator0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/MText.SubHeadline"
+                android:text="RIWAYAT TOP UP" />
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/parentPadding"
+                android:layout_height="@dimen/separatorH"
+                app:layout_constraintTop_toBottomOf="@id/header1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@color/separator" />
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipe"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@id/line1"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_history"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_top_up"
+                    android:layout_width="match_parent"
+                    tools:itemCount="3"
+                    android:layout_height="match_parent" />
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

@@ -1,154 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout android:fitsSystemWindows="true"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout>
 
-
-    <androidx.core.widget.NestedScrollView
+    <androidx.coordinatorlayout.widget.CoordinatorLayout android:fitsSystemWindows="true"
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            android:paddingBottom="@dimen/_100sdp"
+
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/img_profile"
-                android:layout_width="@dimen/_60sdp"
-                android:layout_height="@dimen/_60sdp"
-                android:scaleType="centerCrop"
-                android:layout_marginTop="@dimen/_40sdp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/men" />
-
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_name"
-                style="@style/MText.Title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/standardMargin"
-                app:layout_constraintTop_toBottomOf="@id/img_profile"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:text="Ahmad Riza" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_email"
-                style="@style/MText.Normal.Secondary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/tv_name"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:text="riza.public@gmail.com" />
-
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/view_balance"
-                app:cardUseCompatPadding="true"
-                app:cardElevation="@dimen/_1sdp"
-                android:layout_marginTop="@dimen/parentPadding"
-                android:layout_marginHorizontal="@dimen/parentPadding"
-                app:layout_constraintTop_toBottomOf="@id/tv_email"
-                app:cardCornerRadius="@dimen/_8sdp"
-                app:contentPadding="@dimen/parentPadding"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:paddingBottom="@dimen/_100sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_profile"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:scaleType="centerCrop"
+                    android:layout_marginTop="@dimen/_40sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/men" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_name"
+                    style="@style/MText.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/standardMargin"
+                    app:layout_constraintTop_toBottomOf="@id/img_profile"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="Ahmad Riza" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_email"
+                    style="@style/MText.Normal.Secondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tv_name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="riza.public@gmail.com" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/view_balance"
+                    app:cardUseCompatPadding="true"
+                    app:cardElevation="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/parentPadding"
+                    android:layout_marginHorizontal="@dimen/parentPadding"
+                    app:layout_constraintTop_toBottomOf="@id/tv_email"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    app:contentPadding="@dimen/parentPadding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/label_balance"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Saldo Anda"
+                            style="@style/MText.Normal.Secondary" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_balance"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/label_balance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="Rp1.500.000"
+                            style="@style/MText.Subtitle" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_top_up"
+                            style="@style/MButton"
+                            android:layout_marginEnd="@dimen/parentPadding"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/ic_add_bold"
+                            android:text="TOP UP"
+                            android:drawableTint="@color/white"
+                            android:drawablePadding="@dimen/_6sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_setting"
+                    android:elevation="@dimen/_1sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/item_setting"
+                    app:layout_constraintTop_toBottomOf="@id/view_balance"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:nestedScrollingEnabled="false"
+                    android:layout_marginTop="@dimen/standardMargin"
+                    android:layout_marginHorizontal="@dimen/longMargin"
+                    android:background="@drawable/shape_highlight_rounder" />
+
+
+                <androidx.cardview.widget.CardView
+                    app:layout_constraintTop_toBottomOf="@id/rv_setting"
+                    android:id="@+id/btn_log_out"
+                    app:cardUseCompatPadding="true"
+                    app:contentPadding="@dimen/_8sdp"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    app:cardElevation="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/standardMargin"
+                    android:layout_marginHorizontal="@dimen/parentPadding"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/label_balance"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        tools:text="Saldo Anda"
-                        style="@style/MText.Normal.Secondary" />
+                        android:text="Keluar"
+                        android:gravity="center"
+                        style="@style/MText.SubHeadline"
+                        android:textColor="@color/customPrimary" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_balance"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/label_balance"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tools:text="Rp1.500.000"
-                        style="@style/MText.Subtitle" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btn_whatsapp"
-                        style="@style/MButton"
-                        android:layout_marginEnd="@dimen/parentPadding"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:drawableStart="@drawable/ic_add_bold"
-                        android:text="TOP UP"
-                        android:drawableTint="@color/white"
-                        android:drawablePadding="@dimen/_6sdp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.cardview.widget.CardView>
 
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_setting"
-                android:elevation="@dimen/_1sdp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:itemCount="4"
-                tools:listitem="@layout/item_setting"
-                app:layout_constraintTop_toBottomOf="@id/view_balance"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:nestedScrollingEnabled="false"
-                android:layout_marginTop="@dimen/standardMargin"
-                android:layout_marginHorizontal="@dimen/longMargin"
-                android:background="@drawable/shape_highlight_rounder" />
+        </androidx.core.widget.NestedScrollView>
 
 
-            <androidx.cardview.widget.CardView
-                app:layout_constraintTop_toBottomOf="@id/rv_setting"
-                android:id="@+id/btn_log_out"
-                app:cardUseCompatPadding="true"
-                app:contentPadding="@dimen/_8sdp"
-                app:cardCornerRadius="@dimen/_8sdp"
-                app:cardElevation="@dimen/_1sdp"
-                android:layout_marginTop="@dimen/standardMargin"
-                android:layout_marginHorizontal="@dimen/parentPadding"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Keluar"
-                    android:gravity="center"
-                    style="@style/MText.SubHeadline"
-                    android:textColor="@color/customPrimary" />
-
-            </androidx.cardview.widget.CardView>
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    </androidx.core.widget.NestedScrollView>
-
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

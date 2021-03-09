@@ -2,54 +2,51 @@ package com.github.ahmadriza.mvvmboilerplate.data.remote
 
 import com.github.ahmadriza.mvvmboilerplate.models.*
 import retrofit2.Response
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.PUT
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface MainService {
 
     @POST("api/customer/login")
-    fun login(request: LoginRequest): Response<LoginResponse>
+    suspend fun login(@Body request: LoginRequest): Response<LoginResponse>
 
     @POST("api/customer/register")
-    fun register(request: RegisterRequest): Response<BaseResponse<User>>
+    suspend fun register(@Body request: RegisterRequest): Response<BaseResponse<User>>
 
-    @POST("/api/customer/logout")
-    fun logout(): Response<BaseResponse<Any>>
+    @POST("api/customer/logout")
+    suspend fun logout(): Response<BaseResponse<Any>>
 
-    @POST("/api/customer/forgot-password")
-    fun forgotPassword(request: ForgotPasswordRequest): Response<BaseResponse<Any>>
+    @POST("api/customer/forgot-password")
+    suspend fun forgotPassword(@Body request: ForgotPasswordRequest): Response<BaseResponse<Any>>
 
-    @GET("/api/customer/service")
-    fun getAllServices(): Response<BaseResponse<List<Product>>>
+    @GET("api/customer/service")
+    suspend fun getAllServices(): Response<BaseResponse<List<Product>>>
 
-    @POST("/api/customer/checkout")
-    fun checkOut(request: ProductCheckoutRequest): Response<BaseResponse<Order>>
+    @POST("api/customer/checkout")
+    suspend fun checkOut(@Body request: ProductCheckoutRequest): Response<BaseResponse<Order>>
 
-    @GET("/api/customer/my-order")
-    fun getAllOrder(): Response<BaseResponse<List<Order>>>
+    @GET("api/customer/my-order")
+    suspend fun getAllOrder(): Response<BaseResponse<List<Order>>>
 
-    @GET("/api/customer/my-active-order")
-    fun getActiveAllOrder(): Response<BaseResponse<List<Order>>>
+    @GET("api/customer/my-active-order")
+    suspend fun getActiveAllOrder(): Response<BaseResponse<List<Order>>>
 
-    @GET("/api/customer/my-order/{id}")
-    fun getDetailOrder(@Path("id") id: String): Response<BaseResponse<OrderDetail>>
+    @GET("api/customer/my-order/{id}")
+    suspend fun getDetailOrder(@Path("id") id: String): Response<BaseResponse<OrderDetail>>
 
-    @POST("/api/customer/feedback")
-    fun orderFeedback(request: OrderFeedbackRequest): Response<BaseResponse<Any>>
+    @POST("api/customer/feedback")
+    suspend fun orderFeedback(@Body request: OrderFeedbackRequest): Response<BaseResponse<Any>>
+
+    @POST("api/customer/invoice")
+    suspend fun createTopUp(@Body request: TopUpRequest): Response<BaseResponse<Invoice>>
 
     @GET("api/customer/invoice")
-    fun createTopUp(request: TopUpRequest): Response<BaseResponse<Invoice>>
+    suspend fun getActiveTopUp(): Response<BaseResponse<Invoice>>
 
-    @GET("api/customer/invoice")
-    fun getProfile(): Response<BaseResponse<List<Invoice>>>
+    @GET("api/customer/profile")
+    suspend fun getProfile(): Response<BaseResponse<User>>
 
-    @GET("/api/customer/profile")
-    fun getActiveTopUp(): Response<BaseResponse<User>>
-
-    @PUT("/api/customer/profile")
-    fun editProfile(request: RegisterRequest): Response<BaseResponse<User>>
+    @PUT("api/customer/profile")
+    suspend fun editProfile(@Body request: EditUserRequest): Response<BaseResponse<User>>
 
 
 }

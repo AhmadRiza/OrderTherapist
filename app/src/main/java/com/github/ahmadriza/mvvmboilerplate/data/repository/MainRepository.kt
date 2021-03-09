@@ -2,12 +2,13 @@ package com.github.ahmadriza.mvvmboilerplate.data.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
-import com.github.ahmadriza.mvvmboilerplate.data.Dummy
 import com.github.ahmadriza.mvvmboilerplate.data.local.LocalDataSource
 import com.github.ahmadriza.mvvmboilerplate.data.remote.RemoteDataSource
 import com.github.ahmadriza.mvvmboilerplate.models.*
 import com.github.ahmadriza.mvvmboilerplate.utils.data.Resource
+import com.github.ahmadriza.mvvmboilerplate.utils.data.performLazyGetOperation
 import com.github.ahmadriza.mvvmboilerplate.utils.data.performOperation
+import com.github.ahmadriza.mvvmboilerplate.utils.data.refreshLiveData
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
 
@@ -20,36 +21,75 @@ class MainRepository @Inject constructor(
     private val remote: RemoteDataSource
 ) {
 
+    fun isLoggedIn() = local.getToken() != null
+
+    fun register(
+        request: RegisterRequest
+    ) = performOperation({ remote.register(request) }) {
+        local.saveUser(it.data!!)
+    }
+
+    fun editUser(
+        request: EditUserRequest
+    ) = performOperation({ remote.editUser(request) }) {
+        local.saveUser(it.data!!)
+    }
+
+
     fun login(
         request: LoginRequest
     ): LiveData<Resource<LoginResponse>> = performOperation({
         remote.login(request)
     }) {
         local.saveToken(it.token)
+        local.saveUser(it.data)
     }
 
+    fun forgotPassword(request: ForgotPasswordRequest) = performOperation({
+        remote.forgotPassword(request)
+    })
 
-    fun getProducts(): LiveData<Resource<List<Product>>> = liveData(Dispatchers.IO) {
+    fun getUser() = performLazyGetOperation(
+        cacheOperation = { local.getUser() },
+        networkCall = { remote.getUser() },
+        saveCallResult = {
+            local.saveUser(it.data!!)
+        }
+    )
 
-        emit(Resource.loading())
-        kotlinx.coroutines.delay(1000)
-        emit(
-            Resource.success(Dummy.products)
-        )
-
+    fun logOut() = liveData(Dispatchers.IO) {
+        local.logOut()
+        emit(true)
     }
 
-    fun getUser(): LiveData<User> = liveData(Dispatchers.IO) {
-        emit(Dummy.user)
-    }
+    fun getProducts() = performOperation({
+        remote.getProducts()
+    })
 
-    fun getOrder(id: String): LiveData<Resource<OrderDetail>> = liveData(Dispatchers.IO) {
+    fun checkOut(request: ProductCheckoutRequest) = performOperation({
+        remote.checkOut(request)
+    })
 
+    fun getOrder(id: String) = performOperation({
+        remote.getOrderDetail(id)
+    })
 
-    }
+    fun orderFeedback(feedbackRequest: OrderFeedbackRequest) = performOperation({
+        remote.orderFeedback(feedbackRequest)
+    })
 
-    fun getOrderHistory(): LiveData<Resource<List<Order>>> = liveData(Dispatchers.IO) {
+    fun getAllOrder() = performOperation({
+        remote.getAllOrder()
+    })
 
-    }
+    fun getActiveOrder() = performOperation({
+        remote.getActiveOrder()
+    })
+
+    fun createTopUp(request: TopUpRequest) = performOperation({
+        remote.topUp(request)
+    })
+
+    fun topUpHistory() = refreshLiveData { remote.topUpHistory() }
 
 }
