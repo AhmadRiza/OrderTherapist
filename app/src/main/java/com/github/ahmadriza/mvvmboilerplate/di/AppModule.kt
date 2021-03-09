@@ -76,11 +76,12 @@ object AppModule {
     @Provides
     fun provideJsonInterceptor(): JsonInterceptor = JsonInterceptor()
 
+    @Singleton
     @Provides
     fun provideAuthInterceptor(
         pref: SharedPreferenceHelper
     )
-            : AuthInterceptor = AuthInterceptor(pref.getToken())
+            : AuthInterceptor = AuthInterceptor(pref)
 
     @Provides
     fun provideLogInterceptor(): HttpLoggingInterceptor = HttpLoggingInterceptor().apply {

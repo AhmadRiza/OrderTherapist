@@ -12,7 +12,8 @@ data class User(
     @SerializedName("phone_number") val phone: String,
     val balance: String = "0",
     val gender: String,
-    val email: String
+    val email: String,
+    val age: Int?,
 )
 
 @Parcelize
@@ -48,3 +49,10 @@ data class RegisterRequest(
     @SerializedName("password_confirmation") val passwordConfirm: String = password
 )
 
+data class EditUserRequest(
+    val name: String,
+    val address: String,
+    val age: Int,
+    val gender: String,
+    @SerializedName("phone_number") val phone: String
+)

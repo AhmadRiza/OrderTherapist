@@ -17,16 +17,23 @@ import org.jetbrains.anko.toast
 @AndroidEntryPoint
 class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
 
+    companion object {
+        const val EXTRA_EDIT = "edit"
+    }
+
     private var isMen = true
     private val vm: RegisterVM by viewModels()
 
     override fun getLayoutResource(): Int = R.layout.fragment_register
 
     override fun initViews() {
-
         binding.tvGender.setOnClickListener { selectGender() }
-        binding.btnRegister.setOnClickListener { submit() }
+        binding.btnRegister.setOnClickListener {
+            if (vm.isEdit()) submitEdit()
+            else submit()
+        }
     }
+
 
     override fun initObservers() {
         vm.response.observe(viewLifecycleOwner) {
@@ -48,9 +55,73 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
             }
 
         }
+        vm.editResponse.observe(viewLifecycleOwner) {
+
+            when (it.status) {
+                Resource.Status.LOADING -> {
+                    binding.loading.visible()
+                    binding.btnRegister.disable()
+                }
+                else -> {
+                    binding.loading.gone()
+                    binding.btnRegister.enable()
+                    if (it.status == Resource.Status.SUCCESS) {
+                        findNavController().popBackStack()
+                    } else {
+                        context?.toast(it.message.toString())
+                    }
+                }
+            }
+
+        }
+
+        vm.user.observe(viewLifecycleOwner) {
+            val user = it.data ?: return@observe
+            binding.title.text = "Edit Profil"
+            binding.etName.setText(user.name)
+            binding.etAddress.setText(user.address)
+            binding.etAge.setText(user.age?.toString() ?: "")
+            binding.etPhone.setText(user.phone)
+            binding.groupEdit.gone()
+            binding.btnRegister.text = "Simpan Perubahan"
+            isMen = user.gender == "laki-laki"
+            binding.tvGender.text = if (isMen) "Tn." else "Ny."
+
+        }
+
+
     }
 
     override fun initData() {
+        arguments?.getBoolean(EXTRA_EDIT)?.let {
+            vm.setEdit()
+        }
+    }
+
+    private fun submitEdit() {
+        val name = binding.etName.text.toString().ifBlank {
+            context?.toast("Nama tidak boleh kosong")
+            return
+        }
+
+        val age = binding.etAge.text.toString().ifBlank {
+            context?.toast("Umur tidak boleh kosong")
+            return
+        }
+
+        val address = binding.etAddress.text.toString().ifBlank {
+            context?.toast("Alamat tidak boleh kosong")
+            return
+        }
+
+        val phone = binding.etPhone.text.toString().ifBlank {
+            context?.toast("Nomor hp tidak boleh kosong")
+            return
+        }
+
+        vm.edit(
+            name = name, address = address, age = age.toInt(), phone = phone, isMen = isMen
+        )
 
     }
 

@@ -29,6 +29,13 @@ class MainRepository @Inject constructor(
         local.saveUser(it.data!!)
     }
 
+    fun editUser(
+        request: EditUserRequest
+    ) = performOperation({ remote.editUser(request) }) {
+        local.saveUser(it.data!!)
+    }
+
+
     fun login(
         request: LoginRequest
     ): LiveData<Resource<LoginResponse>> = performOperation({

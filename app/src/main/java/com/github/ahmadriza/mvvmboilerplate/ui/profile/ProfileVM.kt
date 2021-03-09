@@ -15,10 +15,15 @@ class ProfileVM @ViewModelInject constructor(
         repository.logOut()
     }
 
-    val user = repository.getUser()
+    private val _refreshUser = MutableLiveData<Boolean>()
+    val user = Transformations.switchMap(_refreshUser) { repository.getUser() }
 
     fun logOut() {
         _requestLogOut.value = true
+    }
+
+    fun refreshUser() {
+        _refreshUser.value = true
     }
 
 }

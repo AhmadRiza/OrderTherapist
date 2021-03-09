@@ -7,6 +7,7 @@ import com.github.ahmadriza.mvvmboilerplate.R
 import com.github.ahmadriza.mvvmboilerplate.databinding.FragmentProfileBinding
 import com.github.ahmadriza.mvvmboilerplate.models.MenuItem
 import com.github.ahmadriza.mvvmboilerplate.ui.main.MainActivity
+import com.github.ahmadriza.mvvmboilerplate.ui.register.RegisterFragment
 import com.github.ahmadriza.mvvmboilerplate.utils.base.BaseFragment
 import com.github.ahmadriza.mvvmboilerplate.utils.formatCurrency
 import com.github.ahmadriza.mvvmboilerplate.utils.loadRoundImage
@@ -66,11 +67,16 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
         menuAdapter.submitList(menu)
     }
 
+    override fun onResume() {
+        super.onResume()
+        vm.refreshUser()
+    }
+
     val menu = listOf(
         MenuItem("Ubah Profil") {
             findNavController().navigate(
                 R.id.action_navigation_profile_to_editProfileFragment, bundleOf(
-                    Pair("isEdit", true)
+                    Pair(RegisterFragment.EXTRA_EDIT, true)
                 )
             )
         }

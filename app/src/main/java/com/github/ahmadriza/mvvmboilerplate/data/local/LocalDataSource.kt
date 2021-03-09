@@ -22,6 +22,9 @@ class LocalDataSource @Inject constructor(
     fun saveUser(user: User) = pref.saveUser(user)
     fun getUser(): User? = pref.getUser()
 
-    fun logOut() = pref.logOut()
+    fun logOut() {
+        pref.logOut()
+        auth.setToken(null)
+    }
 
 }

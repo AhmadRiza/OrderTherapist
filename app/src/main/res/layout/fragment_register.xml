@@ -66,20 +66,6 @@
                 android:clipToPadding="false"
                 android:paddingBottom="@dimen/_100sdp">
 
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_title"
-                    style="@style/MText.Title"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/parentPadding"
-                    android:visibility="gone"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Pesanan #161661711" />
-
-
                 <TextView
                     android:id="@+id/label_name"
                     style="@style/MText.Normal"
@@ -284,6 +270,11 @@
                     app:layout_constraintStart_toStartOf="@+id/et_pass1"
                     app:layout_constraintTop_toBottomOf="@+id/et_pass1" />
 
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/group_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:constraint_referenced_ids="label_email,et_email,et_pass1,label_pass1,label_pass2, et_pass2" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

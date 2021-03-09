@@ -46,7 +46,7 @@ interface MainService {
     suspend fun getProfile(): Response<BaseResponse<User>>
 
     @PUT("api/customer/profile")
-    suspend fun editProfile(@Body request: RegisterRequest): Response<BaseResponse<User>>
+    suspend fun editProfile(@Body request: EditUserRequest): Response<BaseResponse<User>>
 
 
 }
