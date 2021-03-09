@@ -18,7 +18,9 @@
             app:popExitAnim="@anim/fragment_open_exit" />
         <action
             android:id="@+id/action_navigation_home_to_topUpFragment"
-            app:destination="@id/topUpFragment" />
+            app:destination="@id/topUpFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_open_exit" />
     </fragment>
     <fragment
         android:id="@+id/createOrderFragment"
@@ -70,10 +72,14 @@
         android:label="ProfileFragment">
         <action
             android:id="@+id/action_navigation_profile_to_editProfileFragment"
-            app:destination="@id/editProfileFragment" />
+            app:destination="@id/editProfileFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_open_exit" />
         <action
             android:id="@+id/action_navigation_profile_to_topUpFragment"
-            app:destination="@id/topUpFragment" />
+            app:destination="@id/topUpFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_open_exit" />
     </fragment>
     <fragment
         tools:layout="@layout/fragment_register"

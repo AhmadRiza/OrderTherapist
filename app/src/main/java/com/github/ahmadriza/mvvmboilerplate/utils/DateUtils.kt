@@ -44,6 +44,8 @@ fun Date.toTimeStamp(): String {
     return sdf.format(this)
 }
 
+fun Int.printDoubleDigits() = String.format("%02d", this)
+
 fun Date.display(context: Context): String {
 
     val monthsList: Array<String> = context.resources.getStringArray(R.array.bulan)
@@ -55,8 +57,8 @@ fun Date.display(context: Context): String {
     val date = cal.get(Calendar.DATE)
     val month = monthsList[cal.get(Calendar.MONTH)]
     val year = cal.get(Calendar.YEAR)
-    val hour = cal.get(Calendar.HOUR_OF_DAY)
-    val minute = cal.get(Calendar.MINUTE)
+    val hour = cal.get(Calendar.HOUR_OF_DAY).printDoubleDigits()
+    val minute = cal.get(Calendar.MINUTE).printDoubleDigits()
 
     return "$date $month $year, $hour:$minute"
 

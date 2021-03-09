@@ -152,6 +152,7 @@
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_email"
                     style="@style/MText.Normal"
+                    android:inputType="textEmailAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/parentPadding"
@@ -177,6 +178,7 @@
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_phone"
                     style="@style/MText.Normal"
+                    android:inputType="phone|number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/parentPadding"
@@ -311,12 +313,14 @@
                 android:id="@+id/loading"
                 android:layout_width="@dimen/_24sdp"
                 android:layout_height="@dimen/_24sdp"
-                android:layout_marginEnd="@dimen/standardMargin"
+                android:layout_marginStart="@dimen/standardMargin"
                 android:indeterminateTint="@color/customPrimary"
                 android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btn_order"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:elevation="@dimen/_10sdp"
+                android:outlineProvider="none"
+                app:layout_constraintStart_toStartOf="@id/btn_register"
+                app:layout_constraintTop_toTopOf="@id/btn_register"
+                app:layout_constraintBottom_toBottomOf="@id/btn_register" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
