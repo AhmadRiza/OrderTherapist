@@ -43,6 +43,7 @@ class TopUpFragment : BaseFragment<FragmentTopUpBinding>(), InvoiceAdapter.Liste
             if (it.status == Resource.Status.SUCCESS) it.data?.data?.let { invoice ->
                 context?.toast(invoice.toString())
                 vm.refreshHistory()
+                binding.etNominal.text?.clear()
             } else {
                 context?.toast(it.message.toString())
             }

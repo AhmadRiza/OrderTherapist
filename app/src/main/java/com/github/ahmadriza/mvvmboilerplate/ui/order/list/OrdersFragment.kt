@@ -1,5 +1,6 @@
 package com.github.ahmadriza.mvvmboilerplate.ui.order.list
 
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.github.ahmadriza.mvvmboilerplate.R
 import com.github.ahmadriza.mvvmboilerplate.databinding.FragmentOrdersBinding
@@ -27,7 +28,7 @@ class OrdersFragment : BaseFragment<FragmentOrdersBinding>(), OrderAdapter.Liste
     override fun initData() {
         val adapter = Pager2Adapter(requireActivity())
         adapter.addFragment(OrderListFragment.getInstance(true, this), "Berjalan")
-        adapter.addFragment(OrderListFragment.getInstance(false, this), "Selesai")
+        adapter.addFragment(OrderListFragment.getInstance(false, this), "Semua")
         binding.container.adapter = adapter
         TabLayoutMediator(binding.tab, binding.container) { tab, i ->
             tab.text = adapter.getTitle(i)
@@ -36,6 +37,10 @@ class OrdersFragment : BaseFragment<FragmentOrdersBinding>(), OrderAdapter.Liste
     }
 
     override fun onOrderClicked(order: Order) {
-        findNavController().navigate(R.id.action_navigation_orders_to_orderDetailFragment)
+        findNavController().navigate(
+            R.id.action_navigation_orders_to_orderDetailFragment, bundleOf(
+                Pair("id", order.id)
+            )
+        )
     }
 }
