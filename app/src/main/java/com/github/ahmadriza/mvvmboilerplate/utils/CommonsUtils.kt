@@ -3,6 +3,7 @@ package com.github.ahmadriza.mvvmboilerplate.utils
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import com.google.android.gms.maps.model.LatLng
 import org.jetbrains.anko.toast
 
 
@@ -20,4 +21,12 @@ fun Context.whatsappDirect(number: String) {
         toast("Nomor telefon tidak terdaftar WA")
     }
 
+}
+
+fun Context.openMaps(latLng: LatLng) {
+    val intent = Intent(
+        Intent.ACTION_VIEW,
+        Uri.parse("geo:${latLng.latitude},${latLng.longitude}?q=${latLng.latitude},${latLng.longitude}")
+    )
+    startActivity(intent)
 }

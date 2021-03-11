@@ -11,6 +11,7 @@ import com.github.ahmadriza.mvvmboilerplate.ui.order.rate.RateOrderFragment
 import com.github.ahmadriza.mvvmboilerplate.utils.*
 import com.github.ahmadriza.mvvmboilerplate.utils.base.BaseFragment
 import com.github.ahmadriza.mvvmboilerplate.utils.data.Resource
+import com.google.android.gms.maps.model.LatLng
 import dagger.hilt.android.AndroidEntryPoint
 import org.jetbrains.anko.toast
 
@@ -39,6 +40,14 @@ class OrderDetailFragment : BaseFragment<FragmentOrderDetailBinding>() {
         }
 
         binding.swipe.setOnRefreshListener { vm.refresh() }
+        binding.btnMaps.setOnClickListener {
+
+            val lat = vm.order.value?.data?.data?.latitude ?: return@setOnClickListener
+            val lon = vm.order.value?.data?.data?.longitude ?: return@setOnClickListener
+
+            context?.openMaps(LatLng(lat.toDouble(), lon.toDouble()))
+
+        }
 
     }
 

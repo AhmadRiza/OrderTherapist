@@ -27,8 +27,8 @@ class OrdersFragment : BaseFragment<FragmentOrdersBinding>(), OrderAdapter.Liste
 
     override fun initData() {
         val adapter = Pager2Adapter(requireActivity())
-        adapter.addFragment(OrderListFragment.getInstance(true, this), "Berjalan")
         adapter.addFragment(OrderListFragment.getInstance(false, this), "Semua")
+        adapter.addFragment(OrderListFragment.getInstance(true, this), "Berjalan")
         binding.container.adapter = adapter
         TabLayoutMediator(binding.tab, binding.container) { tab, i ->
             tab.text = adapter.getTitle(i)

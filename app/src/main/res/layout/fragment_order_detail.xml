@@ -271,7 +271,7 @@
                         tools:text="18 Agustus 2020 18:39" />
 
                     <TextView
-                        android:id="@+id/tv_date3"
+                        android:id="@+id/btn_maps"
                         style="@style/MText.Normal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

@@ -5,6 +5,7 @@ import com.github.ahmadriza.mvvmboilerplate.R
 import com.github.ahmadriza.mvvmboilerplate.databinding.FragmentOrderListBinding
 import com.github.ahmadriza.mvvmboilerplate.utils.base.BaseFragment
 import com.github.ahmadriza.mvvmboilerplate.utils.data.Resource
+import com.github.ahmadriza.mvvmboilerplate.utils.visibleOrGone
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -36,7 +37,7 @@ class OrderListFragment : BaseFragment<FragmentOrderListBinding>() {
             adapter.submitList(it.data?.data)
 
             binding.swipe.isRefreshing = it.status == Resource.Status.LOADING
-
+            binding.tvEmpty.visibleOrGone(it.data?.data?.isEmpty() ?: true)
         }
     }
 

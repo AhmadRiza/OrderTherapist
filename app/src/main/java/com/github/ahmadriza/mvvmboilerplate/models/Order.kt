@@ -13,7 +13,8 @@ data class Order(
     @SerializedName("latitude") var latitude: String,
     @SerializedName("longitude") var longitude: String,
     @SerializedName("service") val product: Product,
-    @SerializedName("terapis_status") val info: String?
+    @SerializedName("terapis_status") val info: String?,
+    @SerializedName("terapis") val therapist: Therapist?
 
 )
 

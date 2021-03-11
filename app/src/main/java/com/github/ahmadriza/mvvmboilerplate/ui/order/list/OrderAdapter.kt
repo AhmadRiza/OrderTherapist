@@ -5,11 +5,9 @@ import androidx.recyclerview.widget.DiffUtil
 import com.github.ahmadriza.mvvmboilerplate.R
 import com.github.ahmadriza.mvvmboilerplate.databinding.ItemOrderBinding
 import com.github.ahmadriza.mvvmboilerplate.models.Order
+import com.github.ahmadriza.mvvmboilerplate.models.OrderStatus
+import com.github.ahmadriza.mvvmboilerplate.utils.*
 import com.github.ahmadriza.mvvmboilerplate.utils.common.DataBoundListAdapter
-import com.github.ahmadriza.mvvmboilerplate.utils.formatCurrency
-import com.github.ahmadriza.mvvmboilerplate.utils.getBindingOf
-import com.github.ahmadriza.mvvmboilerplate.utils.gone
-import com.github.ahmadriza.mvvmboilerplate.utils.loadRoundImage
 
 class OrderAdapter(private val listener: Listener? = null) :
     DataBoundListAdapter<Order, ItemOrderBinding>(
@@ -31,11 +29,18 @@ class OrderAdapter(private val listener: Listener? = null) :
     override fun bind(binding: ItemOrderBinding, item: Order) {
         binding.tvProductName.text = item.product.name
         binding.tvPrice.text = item.product.price.formatCurrency()
-//        binding.tvTherapistName.text = item.therapist?.name
+        binding.tvTherapistName.text = item.therapist?.name
         binding.tvTherapistRate.gone()
-        binding.imgTherapist.loadRoundImage(R.drawable.pp)
+        binding.imgTherapist.loadRoundImage(item.therapist?.avatar)
         binding.date.text = item.date
-        binding.tvStatus.text = item.status
+        binding.tvStatus.text = statusData[item.status]?.first
+        binding.tvStatus.setTextColor(
+            binding.root.context.getCompatColor(
+                statusData[item.status]?.second ?: R.color.textPrimary
+            )
+        )
+
+
         binding.root.setOnClickListener { listener?.onOrderClicked(item) }
     }
 
@@ -43,5 +48,12 @@ class OrderAdapter(private val listener: Listener? = null) :
     interface Listener {
         fun onOrderClicked(order: Order)
     }
+
+    private val statusData = mapOf(
+        OrderStatus.pending to Pair("Menunggu Konfirmasi", R.color.yellow),
+        OrderStatus.canceled to Pair("Pesanan Dibatalkan", R.color.customPrimary),
+        OrderStatus.success to Pair("Pesanan Selesai", R.color.colorAccent),
+        OrderStatus.process to Pair("Terapis Menuju Lokasi", R.color.yellow)
+    )
 
 }
