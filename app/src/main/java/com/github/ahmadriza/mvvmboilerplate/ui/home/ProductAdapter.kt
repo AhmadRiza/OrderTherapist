@@ -34,6 +34,7 @@ class ProductAdapter(private val listener: Listener? = null) :
         binding.tvPrice.text = "${item.price.formatCurrency()}/${item.duration} menit"
         binding.btnOrder.setOnClickListener { listener?.onProductOrder(item) }
         binding.imgProduct.loadImage(item.thumbnail)
+        binding.tvCategory.text = item.category.name
     }
 
 

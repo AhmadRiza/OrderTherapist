@@ -85,6 +85,19 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Rp50.000/Jam" />
 
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_category"
+                style="@style/MText.Subtitle"
+                android:textColor="#FF825F"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:textSize="@dimen/_10ssp"
+                android:layout_marginStart="@dimen/_8sdp"
+                app:layout_constraintBottom_toTopOf="@id/tv_name"
+                app:layout_constraintStart_toStartOf="@id/tv_name"
+                tools:text="Premium" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

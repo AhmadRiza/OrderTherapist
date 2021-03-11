@@ -17,6 +17,13 @@ data class Order(
 
 )
 
+object OrderStatus {
+    const val success = "success"
+    const val canceled = "canceled"
+    const val pending = "pending"
+    const val process = "process"
+}
+
 data class OrderDetail(
     val id: String,
     @SerializedName("order_number") val number: String,

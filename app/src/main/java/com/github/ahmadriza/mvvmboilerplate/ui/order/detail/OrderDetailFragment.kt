@@ -6,6 +6,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.github.ahmadriza.mvvmboilerplate.R
 import com.github.ahmadriza.mvvmboilerplate.databinding.FragmentOrderDetailBinding
+import com.github.ahmadriza.mvvmboilerplate.models.OrderStatus
 import com.github.ahmadriza.mvvmboilerplate.ui.order.rate.RateOrderFragment
 import com.github.ahmadriza.mvvmboilerplate.utils.*
 import com.github.ahmadriza.mvvmboilerplate.utils.base.BaseFragment
@@ -32,6 +33,11 @@ class OrderDetailFragment : BaseFragment<FragmentOrderDetailBinding>() {
             )
         }
 
+        binding.btnWhatsapp.setOnClickListener {
+            val phone = vm.order.value?.data?.data?.therapist?.phone ?: return@setOnClickListener
+            context?.whatsappDirect(phone)
+        }
+
         binding.swipe.setOnRefreshListener { vm.refresh() }
 
     }
@@ -45,28 +51,31 @@ class OrderDetailFragment : BaseFragment<FragmentOrderDetailBinding>() {
                 binding.title.text = "Pesanan #${it.number}"
                 binding.tvProductName.text = it.product.name
                 binding.tvProductPrice.text = it.product.price.formatCurrency()
-                binding.imgProduct.loadRoundImage(R.drawable.spa)
-                binding.tvStatus.text = it.status
-                binding.tvStatusInfo.text = it.info
-                binding.tvDate.text = it.date
+                binding.imgProduct.loadImage(it.product.thumbnail)
+                binding.tvDate.text = it.date.displayDate(requireContext())
                 binding.tvTherapistName.text = it.therapist?.name
                 binding.imgTheraphist.loadImage(it.therapist?.avatar.toString())
 
-                when (it.status) {
+                binding.tvStatus.text = statusData[it.status]?.first
+                binding.tvStatusInfo.text = statusData[it.status]?.second
 
-                    "Menuju Lokasi" -> {
+                when (it.status) {
+                    OrderStatus.process -> {
                         TransitionManager.beginDelayedTransition(binding.viewRoot)
                         binding.viewTherapist.visible()
                     }
-
-                    "Pesanan Selesai" -> {
+                    OrderStatus.success -> {
                         binding.btnWhatsapp.gone()
                         binding.btnRating.visible()
+                    }
+
+                    OrderStatus.canceled -> {
+                        TransitionManager.beginDelayedTransition(binding.viewRoot)
+                        binding.viewTherapist.gone()
                     }
                 }
 
             }
-
 
             if (it.status == Resource.Status.ERROR) {
                 context?.toast(it.message.toString())
@@ -87,4 +96,24 @@ class OrderDetailFragment : BaseFragment<FragmentOrderDetailBinding>() {
     override fun initData() {
         arguments?.getString("id")?.let { vm.loadOrder(it) }
     }
+
+    private val statusData = mapOf(
+        OrderStatus.pending to Pair(
+            "Menunggu Konfirmasi",
+            "Kami sedang memeriksa pesanan Anda, kami akan menghubungi Anda melalui Whatsapp untuk konfirmasi lebih lanjut"
+        ),
+        OrderStatus.canceled to Pair(
+            "Pesanan Dibatalkan",
+            "Mohon maaf, pesanan Anda telah dibatalkan. Silahkan membuat pesan kembali dan nikmati layanan kami"
+        ),
+        OrderStatus.success to Pair(
+            "Pesanan Selesai",
+            "Terimakasih telah memesan layanan kami. Silahkan beri penilaian Anda kepada terapis kami"
+        ),
+        OrderStatus.process to Pair(
+            "Terapis Menuju Lokasi",
+            "Terapis sedang menuju ke tempat Anda. Silahkan tunggu di lokasi sesuai alamat pemesanan"
+        )
+    )
+
 }
