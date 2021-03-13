@@ -33,7 +33,7 @@ class OrderDetailVM @ViewModelInject constructor(
     private fun doRefresh() {
         handler.postDelayed({
             refresh()
-        }, 10000)
+        }, 15000)
     }
 
 
