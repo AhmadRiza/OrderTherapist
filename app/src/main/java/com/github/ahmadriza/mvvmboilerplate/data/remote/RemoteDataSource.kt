@@ -13,6 +13,8 @@ class RemoteDataSource @Inject constructor(
     suspend fun forgotPassword(request: ForgotPasswordRequest) =
         getResult { service.forgotPassword(request) }
 
+    suspend fun logout() = getResult { service.logout() }
+
     suspend fun getUser() = getResult { service.getProfile() }
     suspend fun getProducts() = getResult { service.getAllServices() }
 

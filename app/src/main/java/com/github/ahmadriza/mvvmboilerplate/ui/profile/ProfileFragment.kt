@@ -9,8 +9,10 @@ import com.github.ahmadriza.mvvmboilerplate.models.MenuItem
 import com.github.ahmadriza.mvvmboilerplate.ui.main.MainActivity
 import com.github.ahmadriza.mvvmboilerplate.ui.register.RegisterFragment
 import com.github.ahmadriza.mvvmboilerplate.utils.base.BaseFragment
+import com.github.ahmadriza.mvvmboilerplate.utils.data.Resource
 import com.github.ahmadriza.mvvmboilerplate.utils.formatCurrency
 import com.github.ahmadriza.mvvmboilerplate.utils.loadRoundImage
+import com.github.ahmadriza.mvvmboilerplate.utils.visibleOrGone
 import dagger.hilt.android.AndroidEntryPoint
 import org.jetbrains.anko.alert
 import org.jetbrains.anko.clearTask
@@ -47,7 +49,11 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
 
     override fun initObservers() {
         vm.isLoggedOut.observe(viewLifecycleOwner) {
-            startActivity(context?.intentFor<MainActivity>()?.clearTop()?.clearTask())
+            binding.loading.visibleOrGone(it.status == Resource.Status.LOADING)
+            binding.btnLogOut.isEnabled = it.status != Resource.Status.LOADING
+            if (it.status != Resource.Status.LOADING) startActivity(
+                context?.intentFor<MainActivity>()?.clearTop()?.clearTask()
+            )
         }
         vm.user.observe(viewLifecycleOwner) {
             it.data?.let {

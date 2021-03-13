@@ -144,6 +144,16 @@
                         style="@style/MText.SubHeadline"
                         android:textColor="@color/customPrimary" />
 
+                    <ProgressBar
+                        android:visibility="gone"
+                        android:id="@+id/loading"
+                        android:layout_width="@dimen/_16sdp"
+                        android:layout_height="@dimen/_16sdp"
+                        android:indeterminateTint="@color/customPrimary"
+                        android:layout_gravity="start|center"
+                        android:elevation="@dimen/_10sdp"
+                        android:outlineProvider="none" />
+
                 </androidx.cardview.widget.CardView>
 
 

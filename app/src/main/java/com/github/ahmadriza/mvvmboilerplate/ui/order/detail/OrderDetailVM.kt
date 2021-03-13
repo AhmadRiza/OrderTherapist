@@ -1,5 +1,6 @@
 package com.github.ahmadriza.mvvmboilerplate.ui.order.detail
 
+import android.os.Handler
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
@@ -14,8 +15,10 @@ class OrderDetailVM @ViewModelInject constructor(
 
     val user = repository.getUser()
 
+    private val handler = Handler()
+
     val order = Transformations.switchMap(_orderId) {
-        repository.getOrder(it)
+        repository.getOrder(it).also { doRefresh() }
     }
 
     fun loadOrder(id: String) {
@@ -27,4 +30,15 @@ class OrderDetailVM @ViewModelInject constructor(
         _orderId.value = id
     }
 
+    private fun doRefresh() {
+        handler.postDelayed({
+            refresh()
+        }, 10000)
+    }
+
+
+    override fun onCleared() {
+        handler.removeCallbacksAndMessages(null)
+        super.onCleared()
+    }
 }
